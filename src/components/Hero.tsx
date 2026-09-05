@@ -102,11 +102,16 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col gap-3.5 p-5 sm:p-6">
-              <Metric
-                label={`${horizon} DEMAND FORECAST`}
-                value={data.demand}
-                valueClassName="text-accent"
-              />
+              <div>
+                <Metric
+                  label={`${horizon} DEMAND FORECAST`}
+                  value={data.demand}
+                  valueClassName="text-accent"
+                />
+                <span className="mt-0.5 block rotate-[-1.5deg] text-right font-handwritten text-[13px] text-accent/80">
+                  ↳ moved twice today
+                </span>
+              </div>
               <Divider />
               <Metric label="OPPORTUNITY PROBABILITY" value={data.probability} />
               <Divider />

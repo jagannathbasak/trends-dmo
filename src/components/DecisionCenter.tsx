@@ -99,8 +99,13 @@ export default function DecisionCenter() {
           <Connector />
 
           <Reveal delay={220} className="rounded-xl border-[1.5px] border-accent bg-accent/[0.07] p-6 sm:p-7">
-            <div className="mb-3.5 font-mono text-[10px] tracking-[0.12em] text-accent">
-              04 · WHAT YOU SHOULD DO ABOUT IT
+            <div className="mb-3.5 flex items-baseline justify-between gap-3">
+              <span className="font-mono text-[10px] tracking-[0.12em] text-accent">
+                04 · WHAT YOU SHOULD DO ABOUT IT
+              </span>
+              <span className="hidden rotate-[-2deg] font-handwritten text-[15px] text-accent/80 sm:inline">
+                the actual call
+              </span>
             </div>
             <p className="mb-5 text-balance font-display text-xl font-semibold leading-snug tracking-tight sm:text-[27px]">
               Commit budget in Q4 2026, launch in Q1 2027, and target DE and NL mid-market before
