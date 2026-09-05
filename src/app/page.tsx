@@ -11,12 +11,20 @@ import TrackRecord from "@/components/TrackRecord";
 import Roles from "@/components/Roles";
 import MethodIntegrations from "@/components/MethodIntegrations";
 import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { buildStructuredData } from "@/lib/structuredData";
 
 export default function Home() {
+  const structuredData = buildStructuredData();
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <main>
         <Hero />
@@ -31,6 +39,7 @@ export default function Home() {
         <Roles />
         <MethodIntegrations />
         <Pricing />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

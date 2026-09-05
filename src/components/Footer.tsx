@@ -4,7 +4,7 @@ const LINKS = [
   { href: "#track-record", label: "TRACK RECORD" },
   { href: "#method", label: "METHOD" },
   { href: "#pricing", label: "API" },
-  { href: "#", label: "LEGAL" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Footer() {
