@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useModal } from "@/components/ModalProvider";
 
 const LINKS = [
@@ -45,6 +46,12 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 text-[13px] font-medium lg:flex">
+          <Link
+            href="/dashboard"
+            className="rounded-md border border-white/15 px-4 py-2.5 text-white/85 transition hover:border-white/35"
+          >
+            Dashboard
+          </Link>
           <button type="button" className="text-white/60 transition hover:text-white">
             Sign in
           </button>
@@ -87,6 +94,13 @@ export default function Navbar() {
             ))}
           </nav>
           <div className="mt-3 flex flex-col gap-2">
+            <Link
+              href="/dashboard"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md border border-white/15 px-4 py-2.5 text-center text-sm font-medium text-white/85"
+            >
+              Dashboard
+            </Link>
             <button
               type="button"
               className="rounded-md border border-white/15 px-4 py-2.5 text-sm font-medium text-white/80"

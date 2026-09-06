@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import HorizonPicker, { type Horizon } from "@/components/HorizonPicker";
 import EvidenceLegend from "@/components/EvidenceLegend";
 import Reveal from "@/components/Reveal";
@@ -37,12 +38,12 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={200} className="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="#ask"
+          <Link
+            href="/dashboard"
             className="rounded-[7px] bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink transition hover:brightness-110"
           >
             Run a forecast
-          </a>
+          </Link>
           <a
             href="#reports"
             className="rounded-[7px] border border-white/20 px-6 py-3.5 text-sm font-medium text-white/85 transition hover:border-white/40"
