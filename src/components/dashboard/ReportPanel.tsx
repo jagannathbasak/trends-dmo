@@ -77,38 +77,16 @@ export default function ReportPanel({
 
       <div className="grid grid-cols-1 lg:grid-cols-[210px_1fr]">
         <div className="hidden flex-col gap-3 border-r border-white/[0.07] p-5 text-xs lg:flex">
-          <span className="mb-1 font-mono text-[10px] tracking-[0.1em] text-white/35">
-            MARKETS TRACKED
-          </span>
-          {MARKETS.map((m) => {
-            const active = m.id === marketId;
-            return (
-              <button
-                key={m.id}
-                type="button"
-                onClick={() => onSelectMarket(m.id)}
-                className="text-left"
-              >
-                <span className={active ? "font-semibold text-accent" : "text-white/55 transition hover:text-white/80"}>
-                  {m.shortName}
-                </span>
-                <span className="mt-0.5 block font-mono text-[10px] text-white/30">{m.stage}</span>
-              </button>
-            );
-          })}
-
-          <div className="mt-4 flex flex-col gap-2.5 border-t border-white/[0.07] pt-4">
-            <span className="mb-1 font-mono text-[10px] tracking-[0.1em] text-white/35">CONTENTS</span>
-            {CONTENTS.map((item, i) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={i === 0 ? "font-semibold text-accent" : "text-white/55 transition hover:text-white/80"}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+          <span className="mb-1 font-mono text-[10px] tracking-[0.1em] text-white/35">CONTENTS</span>
+          {CONTENTS.map((item, i) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className={i === 0 ? "font-semibold text-accent" : "text-white/55 transition hover:text-white/80"}
+            >
+              {item.label}
+            </a>
+          ))}
 
           <div className="mt-5 rounded-[9px] border border-white/10 p-3.5">
             <div className="mb-2.5 font-mono text-[10px] text-white/40">EVIDENCE MIX</div>
@@ -132,6 +110,23 @@ export default function ReportPanel({
         <div className="flex flex-col gap-4 p-5 sm:p-7">
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
             <div>
+              <div className="relative mb-2 inline-block">
+                <select
+                  value={marketId}
+                  onChange={(event) => onSelectMarket(event.target.value as MarketId)}
+                  aria-label="Change market"
+                  className="appearance-none rounded-full border border-white/15 bg-transparent py-1.5 pl-3 pr-7 font-mono text-[10px] font-medium tracking-[0.1em] text-white/60 outline-none transition hover:border-white/30 hover:text-white/85"
+                >
+                  {MARKETS.map((m) => (
+                    <option key={m.id} value={m.id} className="bg-[#0A0F0E] text-foreground">
+                      {m.name.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] text-white/40">
+                  ▾
+                </span>
+              </div>
               <h1 className="mb-1.5 font-display text-xl font-semibold tracking-tight sm:text-[26px]">
                 {market.name} · {market.segment}
               </h1>
