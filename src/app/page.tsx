@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Manifesto from "@/components/Manifesto";
 import PredictionTimeline from "@/components/PredictionTimeline";
 import SixDimensions from "@/components/SixDimensions";
 import SignalBoard from "@/components/SignalBoard";
@@ -28,6 +29,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Manifesto />
         <PredictionTimeline />
         <SixDimensions />
         <SignalBoard />
