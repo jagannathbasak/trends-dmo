@@ -9,6 +9,8 @@ export type MarketMeta = {
   id: MarketId;
   name: string;
   shortName: string;
+  segment: string;
+  generated: string;
   tier: "VERIFIED" | "SIGNAL" | "ESTIMATE";
   stage: "TREND" | "EMERGING" | "WEAK SIGNAL";
   sources: number;
@@ -23,6 +25,8 @@ export const MARKETS: MarketMeta[] = [
     id: "ai-workflow",
     name: "AI Workflow Platforms",
     shortName: "AI Workflow Platforms",
+    segment: "DACH mid-market",
+    generated: "02 SEP 2026",
     tier: "VERIFIED",
     stage: "TREND",
     sources: 41,
@@ -34,6 +38,8 @@ export const MARKETS: MarketMeta[] = [
     id: "energy-storage",
     name: "Industrial Energy Storage",
     shortName: "Energy Storage",
+    segment: "European utility-scale",
+    generated: "31 AUG 2026",
     tier: "SIGNAL",
     stage: "EMERGING",
     sources: 27,
@@ -45,6 +51,8 @@ export const MARKETS: MarketMeta[] = [
     id: "clinical-docs",
     name: "Clinical Documentation AI",
     shortName: "Clinical Docs AI",
+    segment: "US hospital systems",
+    generated: "29 AUG 2026",
     tier: "VERIFIED",
     stage: "TREND",
     sources: 33,
@@ -56,6 +64,8 @@ export const MARKETS: MarketMeta[] = [
     id: "circular-packaging",
     name: "Circular Packaging Mandates",
     shortName: "Circular Packaging",
+    segment: "EU compliance vendors",
+    generated: "27 AUG 2026",
     tier: "ESTIMATE",
     stage: "WEAK SIGNAL",
     sources: 19,
