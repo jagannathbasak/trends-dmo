@@ -20,6 +20,17 @@ const EVIDENCE_MIX = [
   { label: "◈ PREDICTION", pct: 11, accent: true },
 ];
 
+const CONTENTS = [
+  { label: "01 Verdict", href: "#verdict" },
+  { label: "02 Current state", href: "#current-state" },
+  { label: "03 Evidence trail", href: "#evidence-trail" },
+  { label: "04 Forecast", href: "#forecast" },
+  { label: "05 Competitive intensity", href: "#competition" },
+  { label: "06 Timing window", href: "#timing" },
+  { label: "07 Invalidation risks", href: "#risks" },
+  { label: "08 Recommendation", href: "#recommendation" },
+];
+
 export default function ReportPanel({
   marketId,
   horizon,
@@ -85,6 +96,19 @@ export default function ReportPanel({
               </button>
             );
           })}
+
+          <div className="mt-4 flex flex-col gap-2.5 border-t border-white/[0.07] pt-4">
+            <span className="mb-1 font-mono text-[10px] tracking-[0.1em] text-white/35">CONTENTS</span>
+            {CONTENTS.map((item, i) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className={i === 0 ? "font-semibold text-accent" : "text-white/55 transition hover:text-white/80"}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
 
           <div className="mt-5 rounded-[9px] border border-white/10 p-3.5">
             <div className="mb-2.5 font-mono text-[10px] text-white/40">EVIDENCE MIX</div>
@@ -207,7 +231,7 @@ export default function ReportPanel({
               </div>
               <p className="text-sm leading-relaxed text-white/75">{base.competitionNote}</p>
             </div>
-            <div className="rounded-xl border border-white/10 p-5">
+            <div id="timing" className="scroll-mt-24 rounded-xl border border-white/10 p-5">
               <div className="mb-2 font-mono text-[10px] text-white/45">TIMING WINDOW ◈</div>
               <p className="text-sm leading-relaxed text-white/75">{stat.timingNote}</p>
             </div>
@@ -266,7 +290,10 @@ export default function ReportPanel({
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 rounded-xl border border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div
+            id="evidence-trail"
+            className="scroll-mt-24 flex flex-col gap-4 rounded-xl border border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between"
+          >
             <div className="text-[13px] leading-relaxed text-white/65">
               <span className="text-accent">●</span> {market.sources} verified filings · ◦{" "}
               {market.signals} observed signals · ◇ 4 derived estimates with method shown ·{" "}
