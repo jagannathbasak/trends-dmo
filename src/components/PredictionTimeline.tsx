@@ -24,7 +24,7 @@ export default function PredictionTimeline() {
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <Reveal className="flex max-w-xl flex-col gap-4">
             <Eyebrow>PREDICTION INTELLIGENCE</Eyebrow>
-            <h2 className="text-balance font-display text-[28px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[38px] lg:text-[42px]">
+            <h2 className="text-balance font-handwritten text-[28px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[38px] lg:text-[42px]">
               A weak signal in March becomes a market movement by Q3. We show you the whole arc.
             </h2>
             <p className="text-[15px] leading-relaxed text-white/60 sm:text-base">
