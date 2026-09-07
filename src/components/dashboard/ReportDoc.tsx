@@ -1,6 +1,7 @@
 "use client";
 
-import HorizonPicker, { type Horizon } from "@/components/HorizonPicker";
+import HorizonPicker, { HORIZONS, type Horizon } from "@/components/HorizonPicker";
+import EvidenceLegend from "@/components/EvidenceLegend";
 import { useModal } from "@/components/ModalProvider";
 import { bandPolygon, linePoints } from "@/lib/forecastData";
 import {
@@ -85,9 +86,59 @@ export default function ReportDoc({
       </div>
 
       <div id="current-state" className="scroll-mt-24 rounded-xl border border-white/10 p-5">
-        <div className="mb-2 font-mono text-[10px] tracking-[0.14em] text-white/45">CURRENT STATE</div>
+        <div className="mb-2 font-mono text-[10px] tracking-[0.14em] text-white/45">CURRENT STATE · OBSERVED</div>
         <p className="text-[15px] leading-relaxed">{decision.happening}</p>
         <div className="mt-2.5 font-mono text-[11px] text-white/40">{decision.happeningEvidence}</div>
+
+        <div className="mt-5 border-t border-white/[0.07] pt-4">
+          <div className="mb-2 font-mono text-[10px] tracking-[0.14em] text-white/45">WHY IT&apos;S HAPPENING</div>
+          <p className="text-sm leading-relaxed text-white/75">{decision.why}</p>
+          <div className="mt-3.5 flex flex-col gap-2.5">
+            {decision.catalysts.map((c) => (
+              <div key={c.label} className="flex items-center gap-3">
+                <span className="w-[190px] flex-none text-xs text-white/70 sm:w-[240px]">
+                  <span className={c.mark === "●" ? "text-accent" : "text-white/40"}>{c.mark}</span>{" "}
+                  {c.label}
+                </span>
+                <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/10">
+                  <span className="block h-1.5 rounded-full bg-accent/60" style={{ width: `${c.pct}%` }} />
+                </span>
+                <span className="w-8 flex-none text-right font-mono text-[11px] text-white/45">.{c.pct}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 font-mono text-[11px] text-white/40">{decision.whyTag}</div>
+        </div>
+      </div>
+
+      <div id="evidence-trail" className="scroll-mt-24 rounded-xl border border-white/10 p-5">
+        <div className="mb-2 font-mono text-[10px] tracking-[0.14em] text-white/45">EVIDENCE TRAIL</div>
+        <p className="text-sm leading-relaxed text-white/75">
+          Every figure above opens to its basis. {market.sources} verified filings and {market.signals}{" "}
+          observed signals sit beneath this forecast, alongside derived estimates and model outputs — each
+          labelled by evidence tier.
+        </p>
+        <EvidenceLegend className="mt-4" />
+        <div className="mt-3 flex h-1.5 overflow-hidden rounded-full">
+          <span style={{ width: "34%" }} className="bg-accent" />
+          <span style={{ width: "41%" }} className="bg-white/50" />
+          <span style={{ width: "14%" }} className="bg-white/25" />
+          <span style={{ width: "11%" }} className="bg-accent/45" />
+        </div>
+        <div className="mt-4 flex flex-col gap-4 border-t border-white/[0.07] pt-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-[13px] leading-relaxed text-white/65">
+            <span className="text-accent">●</span> {market.sources} verified filings · ◦ {market.signals}{" "}
+            observed signals · ◇ 4 derived estimates with method shown ·{" "}
+            <span className="text-accent">◈</span> 6 model outputs with band and confidence
+          </div>
+          <button
+            type="button"
+            onClick={() => open("Open evidence trail")}
+            className="flex-none self-start rounded-md border border-white/[0.16] px-3.5 py-2 text-xs font-medium sm:self-auto"
+          >
+            Open evidence trail
+          </button>
+        </div>
       </div>
 
       <div id="forecast" className="scroll-mt-24 grid grid-cols-2 gap-3.5 sm:grid-cols-4">
@@ -149,13 +200,69 @@ export default function ReportDoc({
       </div>
 
       <div id="competition" className="scroll-mt-24 grid grid-cols-1 gap-3.5 sm:grid-cols-2">
-        <div className="rounded-xl border border-white/10 p-5">
+        <div className="flex flex-col rounded-xl border border-white/10 p-5">
           <div className="mb-2 font-mono text-[10px] text-white/45">COMPETITIVE INTENSITY ◈</div>
           <p className="text-sm leading-relaxed text-white/75">{base.competitionNote}</p>
+
+          <div className="mt-4 border-t border-white/[0.07] pt-4">
+            <div className="mb-2 font-mono text-[10px] text-white/40">INTENSITY ACROSS HORIZONS</div>
+            <div className="grid grid-cols-4 gap-2">
+              {HORIZONS.map((h) => (
+                <div
+                  key={h}
+                  className={`rounded-md border p-2.5 text-center ${
+                    h === horizon ? "border-accent/40 bg-accent/[0.08]" : "border-white/10"
+                  }`}
+                >
+                  <div className="font-mono text-[9px] text-white/40">{h}</div>
+                  <div
+                    className={`mt-1 font-display text-sm font-semibold ${h === horizon ? "text-accent" : ""}`}
+                  >
+                    {marketStats[marketId][h].competition}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/[0.07] pt-4">
+            <span className="mr-1 font-mono text-[10px] text-white/40">CONCENTRATION</span>
+            {base.geo.map((g, i) => (
+              <span
+                key={g.region}
+                className={`rounded-full border px-2.5 py-1 font-mono text-[11px] ${
+                  i === 0 ? "border-accent/35 text-accent" : "border-white/10 text-white/55"
+                }`}
+              >
+                {g.region} {g.value}
+              </span>
+            ))}
+          </div>
         </div>
-        <div id="timing" className="scroll-mt-24 rounded-xl border border-white/10 p-5">
+
+        <div id="timing" className="scroll-mt-24 flex flex-col rounded-xl border border-white/10 p-5">
           <div className="mb-2 font-mono text-[10px] text-white/45">TIMING WINDOW ◈</div>
           <p className="text-sm leading-relaxed text-white/75">{stat.timingNote}</p>
+
+          <div className="mt-4 border-t border-white/[0.07] pt-4">
+            <div className="mb-2 font-mono text-[10px] text-white/40">WINDOW ACROSS HORIZONS</div>
+            <div className="flex flex-col gap-1.5">
+              {HORIZONS.map((h) => (
+                <div key={h} className="flex items-center justify-between text-xs">
+                  <span className={`font-mono ${h === horizon ? "text-accent" : "text-white/45"}`}>{h}</span>
+                  <span className={h === horizon ? "font-semibold text-accent" : "text-white/70"}>
+                    {marketStats[marketId][h].window}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-between border-t border-white/[0.07] pt-4">
+            <span className="font-mono text-[10px] text-white/40">MOMENTUM</span>
+            <span className="font-display text-sm font-semibold text-accent">{base.momentum}</span>
+          </div>
+          <p className="mt-1.5 text-xs leading-relaxed text-white/50">{base.momentumNote}</p>
         </div>
       </div>
 
@@ -210,23 +317,6 @@ export default function ReportDoc({
         </div>
       </div>
 
-      <div
-        id="evidence-trail"
-        className="scroll-mt-24 flex flex-col gap-4 rounded-xl border border-white/10 p-5 sm:flex-row sm:items-center sm:justify-between"
-      >
-        <div className="text-[13px] leading-relaxed text-white/65">
-          <span className="text-accent">●</span> {market.sources} verified filings · ◦ {market.signals}{" "}
-          observed signals · ◇ 4 derived estimates with method shown ·{" "}
-          <span className="text-accent">◈</span> 6 model outputs with band and confidence
-        </div>
-        <button
-          type="button"
-          onClick={() => open("Open evidence trail")}
-          className="flex-none self-start rounded-md border border-white/[0.16] px-3.5 py-2 text-xs font-medium sm:self-auto"
-        >
-          Open evidence trail
-        </button>
-      </div>
     </main>
   );
 }
