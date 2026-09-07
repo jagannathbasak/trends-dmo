@@ -76,13 +76,17 @@ export default function ReportPanel({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[210px_1fr]">
-        <div className="hidden flex-col gap-3 border-r border-white/[0.07] p-5 text-xs lg:flex">
-          <span className="mb-1 font-mono text-[10px] tracking-[0.1em] text-white/35">CONTENTS</span>
+        <div className="hidden flex-col gap-1 border-r border-white/[0.07] p-5 text-xs lg:flex">
+          <span className="mb-2 font-mono text-[10px] tracking-[0.1em] text-white/35">CONTENTS</span>
           {CONTENTS.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
-              className={i === 0 ? "font-semibold text-accent" : "text-white/55 transition hover:text-white/80"}
+              className={`-mx-2 rounded-md px-2 py-1.5 transition ${
+                i === 0
+                  ? "bg-accent/10 font-semibold text-accent"
+                  : "text-white/55 hover:bg-white/[0.05] hover:text-white/85"
+              }`}
             >
               {item.label}
             </a>
@@ -108,25 +112,8 @@ export default function ReportPanel({
         </div>
 
         <div className="flex flex-col gap-4 p-5 sm:p-7">
-          <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
             <div>
-              <div className="relative mb-2 inline-block">
-                <select
-                  value={marketId}
-                  onChange={(event) => onSelectMarket(event.target.value as MarketId)}
-                  aria-label="Change market"
-                  className="appearance-none rounded-full border border-white/15 bg-transparent py-1.5 pl-3 pr-7 font-mono text-[10px] font-medium tracking-[0.1em] text-white/60 outline-none transition hover:border-white/30 hover:text-white/85"
-                >
-                  {MARKETS.map((m) => (
-                    <option key={m.id} value={m.id} className="bg-[#0A0F0E] text-foreground">
-                      {m.name.toUpperCase()}
-                    </option>
-                  ))}
-                </select>
-                <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[9px] text-white/40">
-                  ▾
-                </span>
-              </div>
               <h1 className="mb-1.5 font-display text-xl font-semibold tracking-tight sm:text-[26px]">
                 {market.name} · {market.segment}
               </h1>
@@ -134,7 +121,34 @@ export default function ReportPanel({
                 GENERATED {market.generated} · {market.sources} SOURCES · {market.signals} SIGNALS
               </span>
             </div>
-            <HorizonPicker value={horizon} onChange={onSelectHorizon} />
+
+            <div className="flex flex-col items-start gap-3 sm:items-end">
+              <div className="flex flex-col items-start gap-1.5 sm:items-end">
+                <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">MARKET</span>
+                <div className="relative w-full sm:w-auto">
+                  <select
+                    value={marketId}
+                    onChange={(event) => onSelectMarket(event.target.value as MarketId)}
+                    aria-label="Change market"
+                    className="w-full min-w-[230px] cursor-pointer appearance-none rounded-lg border border-white/15 bg-white/[0.04] py-2.5 pl-3.5 pr-9 font-mono text-[11px] font-semibold tracking-[0.06em] text-foreground outline-none transition hover:border-white/30 hover:bg-white/[0.07] focus-visible:border-accent/60"
+                  >
+                    {MARKETS.map((m) => (
+                      <option key={m.id} value={m.id} className="bg-[#0A0F0E] text-foreground">
+                        {m.name}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[10px] text-white/45">
+                    ▾
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-start gap-1.5 sm:items-end">
+                <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">HORIZON</span>
+                <HorizonPicker value={horizon} onChange={onSelectHorizon} />
+              </div>
+            </div>
           </div>
 
           <div id="verdict" className="scroll-mt-24 rounded-xl border border-accent/40 bg-accent/5 p-5">
