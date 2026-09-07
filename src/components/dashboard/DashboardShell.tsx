@@ -4,12 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Horizon } from "@/components/HorizonPicker";
 import type { MarketId } from "@/lib/marketsData";
-import ReportSidebar from "@/components/dashboard/ReportSidebar";
+import ReportSidebar, { type SectionId } from "@/components/dashboard/ReportSidebar";
 import ReportDoc from "@/components/dashboard/ReportDoc";
 
 export default function DashboardShell() {
   const [marketId, setMarketId] = useState<MarketId>("ai-workflow");
   const [horizon, setHorizon] = useState<Horizon>("12MO");
+  const [section, setSection] = useState<SectionId>("verdict");
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,12 +35,13 @@ export default function DashboardShell() {
             >
               Export PDF
             </button>
-            <a
-              href="#recommendation"
+            <button
+              type="button"
+              onClick={() => setSection("recommendation")}
               className="rounded-md bg-accent px-3.5 py-2 font-semibold text-accent-ink transition hover:brightness-110"
             >
               Open Decision Center
-            </a>
+            </button>
             <Link href="/" className="font-mono text-[11px] text-white/45 transition hover:text-white/75">
               ← Back to site
             </Link>
@@ -48,10 +50,11 @@ export default function DashboardShell() {
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-[240px_1fr]">
-        <ReportSidebar />
+        <ReportSidebar active={section} onSelect={setSection} />
         <ReportDoc
           marketId={marketId}
           horizon={horizon}
+          section={section}
           onSelectMarket={setMarketId}
           onSelectHorizon={setHorizon}
         />
