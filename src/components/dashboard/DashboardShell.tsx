@@ -37,7 +37,7 @@ export default function DashboardShell() {
             </button>
             <button
               type="button"
-              onClick={() => setSection("recommendation")}
+              onClick={() => setSection("verdict")}
               className="rounded-md bg-accent px-3.5 py-2 font-semibold text-accent-ink transition hover:brightness-110"
             >
               Open Decision Center
