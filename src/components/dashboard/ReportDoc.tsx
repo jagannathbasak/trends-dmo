@@ -13,6 +13,13 @@ import {
   type MarketId,
 } from "@/lib/marketsData";
 import type { SectionId } from "@/components/dashboard/ReportSidebar";
+import CurrentStatePanel from "@/components/dashboard/panels/CurrentStatePanel";
+import EvidenceTrailPanel from "@/components/dashboard/panels/EvidenceTrailPanel";
+import ForecastDeepPanel from "@/components/dashboard/panels/ForecastDeepPanel";
+import CompetitionDeepPanel from "@/components/dashboard/panels/CompetitionDeepPanel";
+import TimingDeepPanel from "@/components/dashboard/panels/TimingDeepPanel";
+import RisksDeepPanel from "@/components/dashboard/panels/RisksDeepPanel";
+import RecommendationDeepPanel from "@/components/dashboard/panels/RecommendationDeepPanel";
 
 export default function ReportDoc({
   marketId,
@@ -228,6 +235,14 @@ export default function ReportDoc({
           </div>
         </>
       ) : null}
+
+      {section === "current-state" ? <CurrentStatePanel /> : null}
+      {section === "evidence-trail" ? <EvidenceTrailPanel /> : null}
+      {section === "forecast" ? <ForecastDeepPanel /> : null}
+      {section === "competition" ? <CompetitionDeepPanel /> : null}
+      {section === "timing" ? <TimingDeepPanel /> : null}
+      {section === "risks" ? <RisksDeepPanel /> : null}
+      {section === "recommendation" ? <RecommendationDeepPanel /> : null}
     </main>
   );
 }
