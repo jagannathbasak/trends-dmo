@@ -52,12 +52,12 @@ export default function OpportunityReport() {
               </span>
             </div>
             <div className="flex gap-2.5 text-xs font-medium">
-              <button
-                type="button"
+              <a
+                href="/report"
                 className="rounded-md border border-white/15 px-3.5 py-2 text-white/75 transition hover:border-white/35"
               >
-                Export PDF
-              </button>
+                View full report
+              </a>
               <a
                 href="#decisions"
                 className="rounded-md bg-accent px-3.5 py-2 font-semibold text-accent-ink transition hover:brightness-110"
@@ -211,12 +211,12 @@ export default function OpportunityReport() {
                   signals · ◇ 4 derived estimates with method shown ·{" "}
                   <span className="text-accent">◈</span> 6 model outputs with band and confidence
                 </div>
-                <button
-                  type="button"
-                  className="flex-none self-start rounded-md border border-white/[0.16] px-3.5 py-2 text-xs font-medium sm:self-auto"
+                <a
+                  href="/report"
+                  className="flex-none self-start rounded-md border border-white/[0.16] px-3.5 py-2 text-xs font-medium transition hover:border-white/35 sm:self-auto"
                 >
                   Open evidence trail
-                </button>
+                </a>
               </div>
             </div>
           </div>
