@@ -9,10 +9,10 @@ export type SectionId =
   | "recommendation";
 
 const EVIDENCE_MIX = [
-  { label: "● VERIFIED", pct: 34, accent: true },
-  { label: "◦ SIGNAL", pct: 41, accent: false },
-  { label: "◇ ESTIMATE", pct: 14, accent: false },
-  { label: "◈ PREDICTION", pct: 11, accent: true },
+  { mark: "●", label: "VERIFIED", pct: 34, color: "#4FE3C1" },
+  { mark: "◍", label: "SIGNAL", pct: 41, color: "#3AA79B" },
+  { mark: "◇", label: "ESTIMATE", pct: 14, color: "#8A9694" },
+  { mark: "◆", label: "PREDICTION", pct: 11, color: "#E3A93F" },
 ];
 
 const CONTENTS: { label: string; id: SectionId }[] = [
@@ -55,21 +55,27 @@ export default function ReportSidebar({
       })}
 
       <div className="mt-5 rounded-[9px] border border-white/10 p-3.5">
-        <div className="mb-2.5 font-mono text-[10px] text-white/40">EVIDENCE MIX</div>
-        <div className="flex flex-col gap-2 font-mono text-[11px] text-white/60">
+        <div className="mb-3 font-mono text-[10px] tracking-[0.14em] text-white/40">EVIDENCE MIX</div>
+        <div className="flex flex-col gap-2.5 font-mono text-[11px]">
           {EVIDENCE_MIX.map((tier) => (
-            <div key={tier.label} className="flex justify-between">
-              <span className={tier.accent ? "text-accent" : undefined}>{tier.label}</span>
-              <span>{tier.pct}%</span>
+            <div key={tier.label} className="flex items-center justify-between gap-2">
+              <span className="flex items-center gap-2">
+                <span style={{ color: tier.color }}>{tier.mark}</span>
+                <span className="tracking-[0.06em] text-white/70">{tier.label}</span>
+              </span>
+              <span className="text-white/85">{tier.pct}%</span>
             </div>
           ))}
         </div>
-        <div className="mt-3 flex h-1.5 overflow-hidden rounded-full">
-          <span style={{ width: "34%" }} className="bg-accent" />
-          <span style={{ width: "41%" }} className="bg-white/50" />
-          <span style={{ width: "14%" }} className="bg-white/25" />
-          <span style={{ width: "11%" }} className="bg-accent/45" />
+        <div className="mt-3.5 flex h-1.5 overflow-hidden rounded-full">
+          {EVIDENCE_MIX.map((tier) => (
+            <span key={tier.label} style={{ width: `${tier.pct}%`, backgroundColor: tier.color }} />
+          ))}
         </div>
+        <p className="mt-3.5 font-mono text-[10.5px] leading-relaxed text-white/35">
+          Every figure in this report carries its class. Nothing is stated at a grade it has not
+          earned.
+        </p>
       </div>
     </aside>
   );
