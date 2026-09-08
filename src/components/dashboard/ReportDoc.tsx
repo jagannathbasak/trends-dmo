@@ -45,21 +45,16 @@ export default function ReportDoc({
     <main className="flex flex-col gap-4 p-5 sm:p-8">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
         <div>
-          <h1 className="mb-1.5 font-display text-xl font-semibold tracking-tight sm:text-[26px]">
-            {market.name} · {market.segment}
-          </h1>
-          <span className="font-mono text-[11px] text-white/40">
-            GENERATED {market.generated} · {market.sources} SOURCES · {market.signals} SIGNALS
-          </span>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 sm:justify-end sm:gap-4">
-          <div className="relative w-full sm:w-auto">
+          <div className="group relative inline-flex items-center gap-2.5">
+            <h1 className="font-display text-xl font-semibold tracking-tight sm:text-[26px]">
+              {market.name} · {market.segment}
+            </h1>
+            <span className="text-[11px] text-white/30 transition group-hover:text-white/60">▾</span>
             <select
               value={marketId}
               onChange={(event) => onSelectMarket(event.target.value as MarketId)}
               aria-label="Change market"
-              className="w-full min-w-[230px] cursor-pointer appearance-none rounded-lg border border-white/15 bg-white/[0.04] py-2.5 pl-3.5 pr-9 font-mono text-[11px] font-semibold tracking-[0.06em] text-foreground outline-none transition hover:border-white/30 hover:bg-white/[0.07] focus-visible:border-accent/60"
+              className="absolute inset-0 cursor-pointer opacity-0"
             >
               {MARKETS.map((m) => (
                 <option key={m.id} value={m.id} className="bg-[#0A0F0E] text-foreground">
@@ -67,15 +62,15 @@ export default function ReportDoc({
                 </option>
               ))}
             </select>
-            <span className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[10px] text-white/45">
-              ▾
-            </span>
           </div>
+          <div className="mt-1.5 font-mono text-[11px] text-white/40">
+            GENERATED {market.generated} · {market.sources} SOURCES · {market.signals} SIGNALS
+          </div>
+        </div>
 
-          <div className="flex items-center gap-2.5">
-            <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">HORIZON</span>
-            <HorizonPicker value={horizon} onChange={onSelectHorizon} />
-          </div>
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">HORIZON</span>
+          <HorizonPicker value={horizon} onChange={onSelectHorizon} />
         </div>
       </div>
 
