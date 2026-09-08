@@ -43,7 +43,7 @@ export default function ReportDoc({
 
   return (
     <main className="flex flex-col gap-4 p-5 sm:p-8">
-      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
         <div>
           <h1 className="mb-1.5 font-display text-xl font-semibold tracking-tight sm:text-[26px]">
             {market.name} · {market.segment}
@@ -53,15 +53,15 @@ export default function ReportDoc({
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] tracking-[0.1em] text-white/35">MARKET</span>
-            <div className="relative">
+        <div className="flex flex-col items-start gap-3 sm:items-end">
+          <div className="flex flex-col items-start gap-1.5 sm:items-end">
+            <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">MARKET</span>
+            <div className="relative w-full sm:w-auto">
               <select
                 value={marketId}
                 onChange={(event) => onSelectMarket(event.target.value as MarketId)}
                 aria-label="Change market"
-                className="min-w-[200px] cursor-pointer appearance-none rounded-lg border border-white/15 bg-white/[0.04] py-2 pl-3.5 pr-9 font-mono text-[11px] font-semibold tracking-[0.06em] text-foreground outline-none transition hover:border-white/30 hover:bg-white/[0.07] focus-visible:border-accent/60"
+                className="w-full min-w-[230px] cursor-pointer appearance-none rounded-lg border border-white/15 bg-white/[0.04] py-2.5 pl-3.5 pr-9 font-mono text-[11px] font-semibold tracking-[0.06em] text-foreground outline-none transition hover:border-white/30 hover:bg-white/[0.07] focus-visible:border-accent/60"
               >
                 {MARKETS.map((m) => (
                   <option key={m.id} value={m.id} className="bg-[#0A0F0E] text-foreground">
@@ -75,9 +75,9 @@ export default function ReportDoc({
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] tracking-[0.1em] text-white/35">HORIZON</span>
-            <HorizonPicker value={horizon} onChange={onSelectHorizon} size="sm" />
+          <div className="flex flex-col items-start gap-1.5 sm:items-end">
+            <span className="font-mono text-[10px] tracking-[0.1em] text-white/40">HORIZON</span>
+            <HorizonPicker value={horizon} onChange={onSelectHorizon} />
           </div>
         </div>
       </div>
