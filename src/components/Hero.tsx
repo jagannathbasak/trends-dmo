@@ -3,6 +3,7 @@
 import { useState } from "react";
 import HorizonPicker, { type Horizon } from "@/components/HorizonPicker";
 import EvidenceLegend from "@/components/EvidenceLegend";
+import { useModal } from "@/components/ModalProvider";
 import Reveal from "@/components/Reveal";
 import { bandPolygon, heroSeries, linePoints } from "@/lib/forecastData";
 
@@ -10,6 +11,7 @@ const LOGOS = ["Halden Capital", "Meridian Group", "Northbeam", "Argent & Vale",
 
 export default function Hero() {
   const [horizon, setHorizon] = useState<Horizon>("12MO");
+  const { open } = useModal();
   const data = heroSeries[horizon];
 
   return (
@@ -18,10 +20,9 @@ export default function Hero() {
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/[0.06] px-4 py-1.5 font-mono text-[11px] tracking-[0.1em] text-accent">
             <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-accent" />
-            FORECASTING ENGINE · LIVE
-          </span>
+            LAUNCHING OCTOBER 8 · EARLY ACCESS OPEN          </span>
         </Reveal>
-
+        {/* FORECASTING ENGINE · LIVE */}
         <Reveal delay={80}>
           <h1 className="max-w-3xl text-balance font-display text-[38px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[52px] md:text-[62px]">
             See what is coming before you make the decision.
@@ -37,12 +38,14 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={200} className="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="#ask"
+          <button
+            type="button"
+            onClick={() => open("Request access")}
             className="rounded-[7px] bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink transition hover:brightness-110"
           >
-            Run a forecast
-          </a>
+            Get early access
+          </button>
+          {/* Run a forecast */}
           <a
             href="#reports"
             className="rounded-[7px] border border-white/20 px-6 py-3.5 text-sm font-medium text-white/85 transition hover:border-white/40"
