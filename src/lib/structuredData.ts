@@ -9,7 +9,7 @@ export function buildStructuredData() {
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/icon`,
+      url: `${SITE_URL}/icon.png`,
     },
     description: SITE_DESCRIPTION,
   };
