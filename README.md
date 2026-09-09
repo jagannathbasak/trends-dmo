@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NVILE — Opportunity Report Dashboard
 
-## Getting Started
+The interactive prediction dashboard, on its own. This branch carries the
+dashboard route and nothing else — the marketing site, its components and its
+SEO/metadata routes are not part of it.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). The root path redirects to
+`/dashboard`, which is the only page in this build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What's here
 
-## Learn More
+```
+src/
+  app/
+    dashboard/page.tsx      the only route
+    layout.tsx              root layout, fonts, modal provider
+    globals.css             Tailwind v4 theme tokens
+  components/
+    dashboard/
+      DashboardShell.tsx    header, sidebar + content shell, holds tab state
+      ReportSidebar.tsx     Contents tabs and the evidence mix box
+      ReportDoc.tsx         title row, market/horizon controls, Verdict tab
+      reportUi.tsx          Card, ClsMark, ClsTag, section labels
+      panels/               one component per tab, 02 through 08
+    HorizonPicker.tsx       30D / 6MO / 12MO / 3YR control
+    ModalProvider.tsx       modal context used by the dashboard buttons
+    RequestAccessModal.tsx  the modal those buttons open
+  lib/
+    marketsData.ts          markets, per-horizon stats, chart series, verdicts
+    reportData.ts           tab 02–08 content
+    dimensionsData.ts       BEAR / BASE / BULL scenario sets
+    forecastData.ts         chart series helpers and the base series
+    site.ts                 name, URL and metadata constants
+```
 
-To learn more about Next.js, take a look at the following resources:
+## How the tabs work
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`DashboardShell` owns the selected `SectionId`. `ReportSidebar` sets it,
+`ReportDoc` renders exactly one section for it: the Verdict tab inline, and tabs
+02–08 from `components/dashboard/panels/`. Only one section is mounted at a
+time — the Contents list is a tab bar, not anchor links.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Evidence classes
 
-## Deploy on Vercel
+Every figure carries a class, and the class sets the mark printed beside it:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Class      | Mark | Meaning                                        |
+| ---------- | ---- | ---------------------------------------------- |
+| VERIFIED   | ●    | Observed in a primary document                 |
+| SIGNAL     | ◦    | Observed but indirect                          |
+| ESTIMATE   | ◇    | Derived — the method ships with the number     |
+| PREDICTION | ◈    | Model output — never stated without a band     |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The sidebar's evidence mix box prints `◍` for SIGNAL and `◆` for PREDICTION;
+the report body uses `◦` and `◈` for those same two classes.
+
+## Data
+
+All data is static and lives in `src/lib/`. There is no API layer, database or
+fetch in this build — swapping the modules in `src/lib/` for real sources is the
+integration point.
