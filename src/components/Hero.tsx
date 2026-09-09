@@ -20,7 +20,7 @@ export default function Hero() {
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/[0.06] px-4 py-1.5 font-mono text-[11px] tracking-[0.1em] text-accent">
             <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-accent" />
-            LAUNCHING OCTOBER 8 · EARLY ACCESS OPEN
+            LAUNCHING <span style={{ color: "#FFA700" }}>OCTOBER 8</span> · EARLY ACCESS OPEN
           </span>
         </Reveal>
 
