@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f0eee9;font-family:system-ui,sans-serif}
+a{color:#1a6f4d;text-decoration:none}a:hover{color:#2f9e6e}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}
+.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}
+.dv-card{max-width:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden}
+.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}
+.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}
+</style></helmet>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Nvile main page — ask a question, get the verdict, jump to the dashboard</span></div>
+
+  <div class="dv-opts">
+
+    <!-- ============ 1a ============ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Chat thread — verdict arrives as one answer block in the conversation</div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+
+        <div class="dv-card" style="width:360px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1.5px solid #22211e">
+            <span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</span>
+            <span style="width:16px;height:16px;border:1.5px solid #22211e;border-radius:20px"></span>
+          </div>
+          <div style="padding:52px 20px 20px;display:flex;flex-direction:column;gap:16px;height:398px">
+            <div style="font:400 21px/1.25 'Architects Daughter',cursive;color:#22211e">What market should<br />we analyze?</div>
+            <div style="border:1.5px dashed #22211e;border-radius:6px;padding:12px;display:flex;align-items:center;gap:10px">
+              <span style="flex:1;font:400 13px 'Architects Daughter',cursive;color:#8e8a82">e.g. AI workflow platforms, DACH…</span>
+              <span style="width:26px;height:26px;background:#2f9e6e;border-radius:4px"></span>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span style="white-space:nowrap;border:1.5px solid #cdc8bf;border-radius:20px;padding:5px 10px;font:400 11px 'Architects Daughter',cursive;color:#5d5a54">saved query</span>
+              <span style="white-space:nowrap;border:1.5px solid #cdc8bf;border-radius:20px;padding:5px 10px;font:400 11px 'Architects Daughter',cursive;color:#5d5a54">re-run last report</span>
+              <span style="white-space:nowrap;border:1.5px solid #cdc8bf;border-radius:20px;padding:5px 10px;font:400 11px 'Architects Daughter',cursive;color:#5d5a54">compare two segments</span>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-wrap:wrap;gap:6px 10px;font:500 8px 'JetBrains Mono',monospace;letter-spacing:.08em;color:#9b968d;white-space:nowrap">
+              <span>● VERIFIED</span><span>◍ SIGNAL</span><span>◇ ESTIMATE</span><span>◆ PREDICTION</span>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">01 · EMPTY</div>
+        </div>
+
+        <div class="dv-card" style="width:360px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1.5px solid #22211e">
+            <span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</span>
+            <span style="width:16px;height:16px;border:1.5px solid #22211e;border-radius:20px"></span>
+          </div>
+          <div style="padding:18px 20px;display:flex;flex-direction:column;gap:14px;height:340px">
+            <div style="align-self:flex-end;max-width:80%;border:1.5px solid #22211e;border-radius:8px 8px 2px 8px;padding:9px 11px;font:400 12px/1.4 'Architects Daughter',cursive;color:#22211e">should we enter AI workflow platforms in DACH mid-market?</div>
+            <div style="border-left:2px solid #2f9e6e;padding-left:12px;display:flex;flex-direction:column;gap:11px">
+              <div style="font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.16em;color:#2f9e6e">ANALYZING</div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border:1.5px solid #2f9e6e;background:#2f9e6e;border-radius:2px"></span><span style="white-space:nowrap;font:400 12px 'Architects Daughter',cursive;color:#4a4740">45 sources read</span></div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border:1.5px solid #2f9e6e;background:#2f9e6e;border-radius:2px"></span><span style="white-space:nowrap;font:400 12px 'Architects Daughter',cursive;color:#4a4740">1.2M signals scored</span></div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border:1.5px solid #22211e;border-radius:2px"></span><span style="white-space:nowrap;font:400 12px 'Architects Daughter',cursive;color:#4a4740">classing evidence…</span></div>
+              <div style="display:flex;align-items:center;gap:8px"><span style="width:11px;height:11px;border:1.5px dashed #b5b0a7;border-radius:2px"></span><span style="white-space:nowrap;font:400 12px 'Architects Daughter',cursive;color:#9b968d">drafting verdict</span></div>
+              <div style="height:5px;border-radius:4px;background:#e4e0d8;overflow:hidden"><div style="width:62%;height:5px;background:#2f9e6e"></div></div>
+            </div>
+            <div style="margin-top:auto;border:1.5px dashed #cdc8bf;border-radius:6px;padding:11px;font:400 12px 'Architects Daughter',cursive;color:#b5b0a7">ask a follow-up…</div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">02 · RUNNING</div>
+        </div>
+
+        <div class="dv-card" style="width:360px">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1.5px solid #22211e">
+            <span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</span>
+            <span style="width:16px;height:16px;border:1.5px solid #22211e;border-radius:20px"></span>
+          </div>
+          <div style="padding:16px 18px;display:flex;flex-direction:column;gap:12px;height:452px">
+            <div style="align-self:flex-end;max-width:78%;border:1.5px solid #cdc8bf;border-radius:8px 8px 2px 8px;padding:7px 10px;font:400 11px/1.35 'Architects Daughter',cursive;color:#5d5a54">AI workflow platforms, DACH mid-market</div>
+            <div style="border:1.5px solid #22211e;border-radius:6px;padding:13px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:7px"><span style="font:600 8.5px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#2f9e6e">VERDICT</span><span style="font-size:9px;color:#b8862b">◆</span></div>
+              <div style="font:400 16px/1.4 'Architects Daughter',cursive;color:#22211e">Enter in Q1 2027. Probability +64%, window narrows as competition rises.</div>
+              <div style="display:flex;gap:12px;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#8e8a82"><span>CONF 82%</span><span>BAND +52→+79%</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:6px;white-space:nowrap">DEMAND ◍</div><div style="width:52px;height:15px;background:#dcece4;border-radius:3px"></div></div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:6px;white-space:nowrap">SIZE '29 ◇</div><div style="width:60px;height:15px;background:#e4e0d8;border-radius:3px"></div></div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:6px;white-space:nowrap">COMPETITION ◍</div><div style="width:44px;height:15px;background:#e4e0d8;border-radius:3px"></div></div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:6px;white-space:nowrap">WINDOW ◆</div><div style="width:66px;height:15px;background:#e4e0d8;border-radius:3px"></div></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;justify-content:space-between;border-bottom:1px solid #e4e0d8;padding-bottom:5px"><span style="white-space:nowrap;font:400 11.5px 'Architects Daughter',cursive;color:#4a4740">what could kill this ◆</span><span style="font:500 10px 'JetBrains Mono',monospace;color:#b8862b">3 risks</span></div>
+            </div>
+            <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">
+              <div style="background:#2f9e6e;border-radius:5px;padding:11px;text-align:center;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">OPEN FULL DASHBOARD →</div>
+              <div style="display:flex;justify-content:center;gap:14px;font:400 11px 'Architects Daughter',cursive;color:#8e8a82;white-space:nowrap"><span>evidence trail</span><span>export PDF</span></div>
+              <div style="border:1.5px dashed #cdc8bf;border-radius:6px;padding:10px;font:400 11.5px 'Architects Daughter',cursive;color:#b5b0a7">ask a follow-up…</div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">03 · VERDICT</div>
+        </div>
+      </div>
+      <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+        <div style="font:400 12.5px/1.5 'Architects Daughter',cursive;color:#6b6760;max-width:1010px">↑ Familiar chat model. Verdict is one bounded answer block, the dashboard button is the last thing in it, and follow-ups continue the thread beneath.</div>
+      </sc-if>
+    </div>
+
+    <!-- ============ 1b ============ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Desktop split — query history rail, verdict pane, dashboard docked</div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="dv-card" style="width:700px">
+          <div style="display:flex;height:452px">
+            <div style="flex:0 0 168px;border-right:1.5px solid #22211e;padding:12px 11px;display:flex;flex-direction:column;gap:9px">
+              <div style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e;margin-bottom:4px">NVILE</div>
+              <div style="border:1.5px solid #22211e;border-radius:5px;padding:7px 9px;font:400 11px 'Architects Daughter',cursive;color:#22211e">+ new analysis</div>
+              <div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d;margin-top:6px">RECENT</div>
+              <div style="background:#edeae3;border-left:2px solid #2f9e6e;padding:7px 8px;font:400 11px/1.3 'Architects Daughter',cursive;color:#22211e">DACH mid-market AI workflow</div>
+              <div style="padding:7px 8px;font:400 11px/1.3 'Architects Daughter',cursive;color:#8e8a82">EU edge compute</div>
+              <div style="padding:7px 8px;font:400 11px/1.3 'Architects Daughter',cursive;color:#8e8a82">vertical SaaS, Nordics</div>
+              <div style="margin-top:auto;border:1.5px dashed #cdc8bf;border-radius:5px;padding:8px;font:400 10.5px/1.35 'Architects Daughter',cursive;color:#9b968d">watchlist · 3 re-scoring</div>
+            </div>
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+              <div style="padding:11px 16px;border-bottom:1px solid #e4e0d8;display:flex;align-items:center;gap:10px">
+                <span style="flex:1;font:400 12.5px 'Architects Daughter',cursive;color:#22211e">should we enter AI workflow platforms in DACH mid-market?</span>
+                <span style="border:1.5px solid #cdc8bf;border-radius:4px;padding:4px 8px;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#8e8a82">EDIT</span>
+              </div>
+              <div style="padding:16px;display:flex;flex-direction:column;gap:12px;flex:1">
+                <div style="border:1.5px solid #22211e;border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:9px">
+                  <div style="font:600 8.5px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#2f9e6e">VERDICT ◆</div>
+                  <div style="font:400 18px/1.35 'Architects Daughter',cursive;color:#22211e">Enter in Q1 2027 — probability +64%, confidence 82%.</div>
+                  <div style="height:5px;border-radius:4px;background:#e4e0d8;overflow:hidden"><div style="width:82%;height:5px;background:#2f9e6e"></div></div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+                  <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 7.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;margin-bottom:6px">DEMAND</div><div style="height:14px;background:#dcece4;border-radius:3px"></div></div>
+                  <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 7.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;margin-bottom:6px">SIZE</div><div style="height:14px;background:#e4e0d8;border-radius:3px"></div></div>
+                  <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 7.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;margin-bottom:6px">COMPET.</div><div style="height:14px;background:#e4e0d8;border-radius:3px"></div></div>
+                  <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:9px"><div style="font:500 7.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;margin-bottom:6px">WINDOW</div><div style="height:14px;background:#e4e0d8;border-radius:3px"></div></div>
+                </div>
+                <div style="display:flex;gap:10px;flex:1">
+                  <div style="flex:1.3;border:1.5px solid #cdc8bf;border-radius:5px;padding:10px;display:flex;flex-direction:column">
+                    <div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:8px">HISTORY → FORECAST</div>
+                    <div style="flex:1;background:repeating-linear-gradient(135deg,#f3f1ec 0 6px,#e7e3db 6px 12px);border-radius:4px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px"><span style="font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#8e8a82">trend chart</span></div>
+                  </div>
+                  <div style="flex:1;border:1.5px solid #cdc8bf;border-radius:5px;padding:10px">
+                    <div style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d;margin-bottom:9px">RISKS ◆</div>
+                    <div style="display:flex;flex-direction:column;gap:7px">
+                      <div style="display:flex;justify-content:space-between;border-bottom:1px solid #e8e4dc;padding-bottom:5px"><span style="font:400 11px 'Architects Daughter',cursive;color:#4a4740">incumbent bundling</span><span style="font:500 9.5px 'JetBrains Mono',monospace;color:#b8862b">31%</span></div>
+                      <div style="display:flex;justify-content:space-between;border-bottom:1px solid #e8e4dc;padding-bottom:5px"><span style="font:400 11px 'Architects Daughter',cursive;color:#4a4740">EU AI act delay</span><span style="font:500 9.5px 'JetBrains Mono',monospace;color:#b8862b">22%</span></div>
+                      <div style="display:flex;justify-content:space-between"><span style="font:400 11px 'Architects Daughter',cursive;color:#4a4740">budget freeze</span><span style="font:500 9.5px 'JetBrains Mono',monospace;color:#b8862b">17%</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="padding:11px 16px;border-top:1.5px solid #22211e;display:flex;align-items:center;gap:10px">
+                <div style="flex:1;border:1.5px dashed #cdc8bf;border-radius:5px;padding:9px;font:400 11.5px 'Architects Daughter',cursive;color:#b5b0a7">refine the question…</div>
+                <div style="background:#2f9e6e;border-radius:5px;padding:10px 14px;font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">DASHBOARD →</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">VERDICT · DESKTOP</div>
+        </div>
+
+        <div class="dv-card" style="width:300px">
+          <div style="height:452px;display:flex;flex-direction:column;padding:14px;gap:12px">
+            <div style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px">
+              <div style="font:400 19px/1.3 'Architects Daughter',cursive;color:#22211e">Ask once. Get a verdict with its evidence class.</div>
+              <div style="border:1.5px dashed #22211e;border-radius:6px;padding:12px;min-height:70px;font:400 12.5px 'Architects Daughter',cursive;color:#8e8a82">type a market, a segment, or a decision…</div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <span style="font:400 11px 'Architects Daughter',cursive;color:#9b968d">depth: standard / deep</span>
+                <span style="background:#2f9e6e;border-radius:4px;padding:8px 12px;font:600 9.5px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">ANALYZE</span>
+              </div>
+            </div>
+            <div style="border-top:1px solid #e4e0d8;padding-top:10px;font:400 11px/1.5 'Architects Daughter',cursive;color:#9b968d">last 3 analyses stay in the left rail</div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">EMPTY · NARROW</div>
+        </div>
+      </div>
+      <sc-if value="{{ showNotes }}">
+        <div style="font:400 12.5px/1.5 'Architects Daughter',cursive;color:#6b6760;max-width:1010px">↑ Closer to a workspace than a chat. Verdict and its four headline numbers fit without scrolling; dashboard button lives in the footer bar next to the refine field.</div>
+      </sc-if>
+    </div>
+
+    <!-- ============ 1c ============ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Command bar — one-line input, verdict takes the whole page</div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="dv-card" style="width:400px">
+          <div style="height:400px;background:#edeae3;position:relative;padding:14px">
+            <div style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#b5b0a7">NVILE</div>
+            <div style="position:absolute;left:22px;right:22px;top:96px;background:#fff;border:1.5px solid #22211e;border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:11px">
+              <div style="display:flex;align-items:center;gap:9px;border-bottom:1px solid #e4e0d8;padding-bottom:11px">
+                <span style="font:500 9px 'JetBrains Mono',monospace;color:#2f9e6e">›</span>
+                <span style="flex:1;font:400 13.5px 'Architects Daughter',cursive;color:#22211e">AI workflow platforms DACH<span style="color:#2f9e6e">|</span></span>
+                <span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d">⏎ RUN</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;gap:9px;align-items:center"><span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;width:54px">SCOPE</span><span style="font:400 11.5px 'Architects Daughter',cursive;color:#4a4740">mid-market · DE AT CH</span></div>
+                <div style="display:flex;gap:9px;align-items:center"><span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;width:54px">HORIZON</span><span style="font:400 11.5px 'Architects Daughter',cursive;color:#4a4740">to 2029</span></div>
+                <div style="display:flex;gap:9px;align-items:center"><span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#9b968d;width:54px">SAVED</span><span style="font:400 11.5px 'Architects Daughter',cursive;color:#8e8a82">3 similar queries →</span></div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">01 · COMMAND + SCOPE</div>
+        </div>
+
+        <div class="dv-card" style="width:400px">
+          <div style="height:400px;display:flex;flex-direction:column">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 14px;border-bottom:1px solid #e4e0d8">
+              <span style="font:400 11.5px 'Architects Daughter',cursive;color:#8e8a82">AI workflow platforms DACH</span>
+              <span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d">↺ NEW QUERY</span>
+            </div>
+            <div style="flex:1;padding:24px 20px;display:flex;flex-direction:column;gap:16px">
+              <div style="font:600 8.5px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#2f9e6e">VERDICT ◆</div>
+              <div style="font:400 26px/1.28 'Architects Daughter',cursive;color:#22211e">Enter in Q1 2027.</div>
+              <div style="font:400 14px/1.5 'Architects Daughter',cursive;color:#5d5a54">Probability +64% (band +52→+79). Window narrows as competitive intensity rises 34% through the year.</div>
+              <div style="display:flex;gap:16px;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#8e8a82;border-top:1px solid #e4e0d8;padding-top:12px">
+                <span>CONF 82%</span><span>45 SRC</span><span>1.2M SIGNALS</span>
+              </div>
+              <div style="margin-top:auto;display:flex;gap:8px">
+                <div style="flex:1;background:#2f9e6e;border-radius:5px;padding:13px;text-align:center;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">SEE THE FULL ANALYSIS →</div>
+                <div style="border:1.5px solid #22211e;border-radius:5px;padding:13px;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#22211e">◆</div>
+              </div>
+              <div style="text-align:center;font:400 11px 'Architects Daughter',cursive;color:#9b968d">verdict only here — depth lives in the dashboard</div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">02 · VERDICT, FULL BLEED</div>
+        </div>
+      </div>
+      <sc-if value="{{ showNotes }}">
+        <div style="font:400 12.5px/1.5 'Architects Daughter',cursive;color:#6b6760;max-width:1010px">↑ Most opinionated: the page holds nothing but the verdict and its confidence, so the dashboard button is the only way deeper. Best if the verdict must feel like a decision, not a document.</div>
+      </sc-if>
+    </div>
+
+    <!-- ============ 1d ============ -->
+    <div class="dv-opt" id="1d">
+      <div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Verdict + drill-in stubs — each section previews, then hands off to the dashboard</div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="dv-card" style="width:400px">
+          <div style="height:470px;display:flex;flex-direction:column">
+            <div style="padding:10px 14px;border-bottom:1.5px solid #22211e;display:flex;justify-content:space-between;align-items:center">
+              <span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</span>
+              <span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d">RE-SCORED DAILY ●</span>
+            </div>
+            <div style="flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+              <div style="border:1.5px solid #22211e;border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:8px">
+                <div style="font:600 8.5px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#2f9e6e">VERDICT ◆</div>
+                <div style="font:400 16px/1.35 'Architects Daughter',cursive;color:#22211e">Enter in Q1 2027 — probability +64%, confidence 82%.</div>
+              </div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#4a4740">DEMAND ◍</span><span style="font:400 10.5px 'Architects Daughter',cursive;color:#2f9e6e">open →</span></div>
+                <div style="height:36px;background:repeating-linear-gradient(135deg,#f3f1ec 0 6px,#e7e3db 6px 12px);border-radius:4px"></div>
+              </div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:11px;display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;align-items:center"><span style="font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#4a4740">RISKS ◆</span><span style="font:400 10.5px 'Architects Daughter',cursive;color:#2f9e6e">open →</span></div>
+                <div style="display:flex;gap:6px"><span style="flex:1;height:11px;background:#f0e2c6;border-radius:3px"></span><span style="flex:1;height:11px;background:#f0e2c6;border-radius:3px"></span><span style="flex:1;height:11px;background:#efece6;border-radius:3px"></span></div>
+              </div>
+              <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:11px;display:flex;justify-content:space-between;align-items:center"><span style="font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#4a4740">EVIDENCE LEDGER ●</span><span style="font:400 10.5px 'Architects Daughter',cursive;color:#2f9e6e">open →</span></div>
+              <div style="margin-top:auto;background:#22211e;border-radius:5px;padding:12px;text-align:center;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">OPEN DECISION DASHBOARD →</div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">VERDICT + STUBS</div>
+        </div>
+
+        <div class="dv-card" style="width:400px">
+          <div style="height:470px;display:flex;flex-direction:column">
+            <div style="padding:10px 14px;border-bottom:1.5px solid #22211e;display:flex;justify-content:space-between;align-items:center">
+              <span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#22211e">NVILE</span>
+              <span style="font:500 8px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#9b968d">◆ 3 RISKS</span>
+            </div>
+            <div style="flex:1;padding:14px;display:flex;flex-direction:column;gap:11px">
+              <div style="font:400 11px 'Architects Daughter',cursive;color:#8e8a82">← back to verdict</div>
+              <div style="font:400 17px 'Architects Daughter',cursive;color:#22211e">Risks, expanded in place</div>
+              <div style="display:flex;flex-direction:column;gap:9px">
+                <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:10px;display:flex;flex-direction:column;gap:7px">
+                  <div style="display:flex;justify-content:space-between"><span style="font:400 12.5px 'Architects Daughter',cursive;color:#22211e">incumbent bundling ◆</span><span style="font:600 11px 'JetBrains Mono',monospace;color:#b8862b">31%</span></div>
+                  <div style="height:6px;background:#efece6;border-radius:4px;overflow:hidden"><div style="width:31%;height:6px;background:#d9a441"></div></div>
+                  <div style="font:400 11px/1.45 'Architects Daughter',cursive;color:#8e8a82">two lines of reasoning + source class shown here</div>
+                </div>
+                <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:10px;display:flex;justify-content:space-between"><span style="font:400 12.5px 'Architects Daughter',cursive;color:#22211e">EU AI act delay ◆</span><span style="font:600 11px 'JetBrains Mono',monospace;color:#b8862b">22%</span></div>
+                <div style="border:1.5px solid #cdc8bf;border-radius:5px;padding:10px;display:flex;justify-content:space-between"><span style="font:400 12.5px 'Architects Daughter',cursive;color:#22211e">budget freeze ◆</span><span style="font:600 11px 'JetBrains Mono',monospace;color:#b8862b">17%</span></div>
+              </div>
+              <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">
+                <div style="background:#2f9e6e;border-radius:5px;padding:12px;text-align:center;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.1em;color:#fff">SEE RISK MODEL IN DASHBOARD →</div>
+                <div style="border:1.5px dashed #cdc8bf;border-radius:5px;padding:10px;font:400 11.5px 'Architects Daughter',cursive;color:#b5b0a7">ask about a specific risk…</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:7px 12px;border-top:1px solid #e4e0d8;font:500 8.5px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9b968d">STUB EXPANDED</div>
+        </div>
+      </div>
+      <sc-if value="{{ showNotes }}">
+        <div style="font:400 12.5px/1.5 'Architects Daughter',cursive;color:#6b6760;max-width:1010px">↑ Middle path: the answer page previews each dashboard section so the handoff is a choice of where to land, not a single blind jump.</div>
+      </sc-if>
+    </div>
+
+  </div>
+
+  <p class="dv-next">Try next: "build <a class="dv-oid" href="#1a">1a</a> hi-fi in the dashboard's dark style" · "merge <a class="dv-oid" href="#1c">1c</a>'s verdict page with <a class="dv-oid" href="#1b">1b</a>'s history rail" · "more options for the empty state"</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showNotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return { showNotes: this.props.showNotes ?? true };
+  }
+}
+</script>
+</body>
+</html>
