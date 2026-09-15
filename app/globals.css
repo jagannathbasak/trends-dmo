@@ -117,26 +117,36 @@ input, textarea { font-family: inherit; color: inherit }
   color: var(--text); text-wrap: balance;
 }
 .sub { margin: 0; font: 400 15px/1.6 var(--font-sans); color: var(--text-dim); max-width: 52ch }
+/* Command-prompt composer: scoped to Space Grotesk / JetBrains Mono and the
+   wireframe's mint accent via local custom-property overrides, so nothing
+   outside this box is affected by the font/color swap. */
 .composer-box {
-  border: 1px solid var(--hairline-strong); border-radius: var(--r-md); background: var(--surface);
+  --cp-accent: #4ade9d; --cp-ink: #062015;
+  --cp-font: var(--font-space-grotesk), var(--font-sans);
+  --cp-mono: var(--font-jetbrains-mono), var(--font-mono);
+  border: 1px solid #26312d; border-radius: 5px; background: #0e1211;
   padding: 16px 17px; display: flex; flex-direction: column; gap: 14px;
 }
 .composer-box textarea {
   background: transparent; border: 0; outline: 0; resize: none; min-height: 66px; width: 100%;
-  color: var(--text); font: 400 15.5px/1.55 var(--font-sans);
+  color: var(--text); font: 400 15.5px/1.55 var(--cp-font);
 }
 .composer-box textarea::placeholder { color: var(--text-faint) }
 .composer-row {
   display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   border-top: 1px solid var(--hairline); padding-top: 13px;
 }
-.depths { display: flex; gap: 4px; background: var(--bg-elevated); border-radius: var(--r-sm); padding: 3px }
-.depth-btn { border: 0; color: var(--text-faint); border-radius: 6px; padding: 6px 12px; font: 500 12.5px var(--font-sans) }
-.depth-btn.active { background: var(--surface-hover); color: var(--text) }
+.depths { display: flex; gap: 6px }
+.depth-btn {
+  border: 1px solid #1d2422; color: #7d8a85; border-radius: 3px; padding: 6px 11px;
+  font: 500 9.5px var(--cp-mono); letter-spacing: .1em; text-transform: uppercase;
+  transition: border-color .15s ease, background .15s ease, color .15s ease;
+}
+.depth-btn.active { background: #12211d; border-color: #2f4a40; color: var(--cp-accent) }
 .btn-primary {
   display: inline-flex; align-items: center; gap: 7px;
-  background: var(--accent); border: 0; color: var(--accent-ink);
-  border-radius: var(--r-sm); padding: 10px 18px; font: 600 13.5px var(--font-sans);
+  background: var(--cp-accent); border: 0; color: var(--cp-ink);
+  border-radius: 3px; padding: 10px 16px; font: 600 10.5px var(--cp-mono); letter-spacing: .1em; text-transform: uppercase;
   transition: transform .15s ease, filter .15s ease;
 }
 .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px) }
