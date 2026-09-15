@@ -24,7 +24,7 @@ export default function RunningState({ queryText }: RunningStateProps) {
                       <svg viewBox="0 0 8 8" fill="none">
                         <path
                           d="M1 4l2 2 4-4"
-                          stroke="#07140d"
+                          stroke="#062015"
                           strokeWidth="1.4"
                           strokeLinecap="round"
                           strokeLinejoin="round"
