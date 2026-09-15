@@ -50,7 +50,7 @@ export default function VerdictState({ queryText, onEditQuery, onRefine }: Verdi
               Edit query
             </button>
             <Link href="/dashboard" className="btn-dash">
-              Open dashboard
+              Open dashboard →
             </Link>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function VerdictState({ queryText, onEditQuery, onRefine }: Verdi
                 <span className="dot" />
                 Verdict
               </span>
-              <span className="verdict-src">Model output · band shown</span>
+              <span className="verdict-src">model output · band shown</span>
             </div>
             <div className="verdict-body">
               <div>
@@ -235,11 +235,9 @@ export default function VerdictState({ queryText, onEditQuery, onRefine }: Verdi
                 />
                 <span className="run-hint">⏎ Run</span>
               </div>
-              <button className="btn-send" aria-label="Run refined question" disabled={!refineQ.trim()} onClick={submitRefine}>
-                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-                  <path d="M14.6 1.4 L7.3 14.2 L6.0 8.7 L1.4 6.3 Z" fill="currentColor" />
-                </svg>
-              </button>
+              <Link href="/dashboard" className="btn-send">
+                Open full dashboard →
+              </Link>
             </div>
           </div>
         </div>

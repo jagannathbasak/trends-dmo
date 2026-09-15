@@ -65,28 +65,28 @@ export const METRICS = [
     evidence: "observed" as EvidenceClass,
     value: "+18.2%",
     valueColor: "var(--accent)",
-    sub: "Observed signal",
+    sub: "observed signal",
   },
   {
     key: "Market size, '29",
     evidence: "derived" as EvidenceClass,
     value: "$14.2B",
     valueColor: "var(--text)",
-    sub: "Derived estimate",
+    sub: "derived estimate",
   },
   {
     key: "Competition",
     evidence: "observed" as EvidenceClass,
     value: "+34%",
     valueColor: "var(--text)",
-    sub: "Intensity index",
+    sub: "intensity index",
   },
   {
     key: "Entry window",
     evidence: "model" as EvidenceClass,
     value: "Q1–Q2 '27",
     valueColor: "var(--text)",
-    sub: "Model output",
+    sub: "model output",
   },
 ];
 
