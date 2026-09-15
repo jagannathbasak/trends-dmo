@@ -235,9 +235,15 @@ export default function VerdictState({ queryText, onEditQuery, onRefine }: Verdi
                 />
                 <span className="run-hint">⏎ Run</span>
               </div>
-              <Link href="/dashboard" className="btn-send">
-                Open full dashboard →
-              </Link>
+              <button className="btn-send" aria-label="Run refined question" disabled={!refineQ.trim()} onClick={submitRefine}>
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path
+                    d="M17.5 2.5 L2.5 9.2 C1.9 9.5 1.9 10.4 2.6 10.6 L8.3 12.4 L10.1 18.1 C10.3 18.8 11.2 18.8 11.5 18.2 L17.9 3.3 C18.2 2.6 17.9 2.2 17.5 2.5 Z"
+                    fill="currentColor"
+                  />
+                  <path d="M8.4 12.3 L17.6 2.5" stroke="var(--wf-ink)" strokeWidth="0.9" strokeLinecap="round" opacity=".35" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
