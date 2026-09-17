@@ -1,6 +1,6 @@
 import "server-only";
 
-import { FIXTURE_SIGNALS, FIXTURE_SOURCES_SCANNED, FIXTURE_TRENDS, toSummary } from "@/fixtures/trends.fixture";
+import { FIXTURE_FORECASTS_WITHDRAWN, FIXTURE_SIGNALS, FIXTURE_SOURCES_SCANNED, FIXTURE_TRENDS, toSummary } from "@/fixtures/trends.fixture";
 import type {
   EvidenceTier,
   Horizon,
@@ -159,6 +159,10 @@ export function getTrendSignals(
 
 export function sourcesScanned(): number {
   return FIXTURE_SOURCES_SCANNED;
+}
+
+export function forecastsWithdrawnCount(): number {
+  return FIXTURE_FORECASTS_WITHDRAWN;
 }
 
 function clampLimit(limit: number | undefined, fallback: number): number {

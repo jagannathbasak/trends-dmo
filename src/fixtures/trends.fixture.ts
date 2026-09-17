@@ -8,12 +8,12 @@ import type {
   MomentumPoint,
   RelatedEntity,
   Signal,
-  SignalType,
   TrendDetail,
   TrendDirection,
   TrendSummary,
 } from "@/types/trends";
 import { TREND_SEEDS, type SeedSignal, type TrendSeed } from "@/fixtures/trends.seeds";
+import { SIGNAL_TYPES, SIGNAL_TYPE_LABEL } from "@/lib/trends/notation";
 
 /**
  * Server-only fixture dataset. Numbers are generated deterministically from the
@@ -136,32 +136,12 @@ function toSignal(id: string, s: SeedSignal): Signal {
   };
 }
 
-const FILLER_SIGNAL_TYPES: SignalType[] = [
-  "search_demand",
-  "capital",
-  "hiring",
-  "procurement",
-  "filings",
-  "pricing",
-  "social",
-];
-
 const FILLER_TEMPLATES: { tier: Signal["tier"]; what: (label: string) => string }[] = [
   { tier: "signal", what: (l) => `${l} activity ticked up against its trailing baseline.` },
   { tier: "verified", what: (l) => `A filed disclosure confirmed continued movement in ${l.toLowerCase()} activity.` },
   { tier: "signal", what: (l) => `${l} volume was noted above the prior comparable period.` },
   { tier: "estimate", what: (l) => `${l} is estimated to have shifted based on sampled panel data.` },
 ];
-
-const SIGNAL_TYPE_LABEL: Record<SignalType, string> = {
-  search_demand: "Search demand",
-  capital: "Capital movement",
-  hiring: "Hiring",
-  procurement: "Procurement",
-  filings: "Filings",
-  pricing: "Pricing",
-  social: "Social",
-};
 
 const FILLER_SOURCES = [
   "Northline Labour Index",
@@ -178,7 +158,7 @@ function buildFillerSignals(seed: TrendSeed, count: number): Signal[] {
   const direction = seed.direction === "declining" ? -1 : 1;
   const signals: Signal[] = [];
   for (let i = 0; i < count; i++) {
-    const type = FILLER_SIGNAL_TYPES[Math.floor(rand() * FILLER_SIGNAL_TYPES.length)];
+    const type = SIGNAL_TYPES[Math.floor(rand() * SIGNAL_TYPES.length)];
     const template = FILLER_TEMPLATES[Math.floor(rand() * FILLER_TEMPLATES.length)];
     const label = SIGNAL_TYPE_LABEL[type];
     const weight = round1(clamp(0.15 + rand() * 0.55, 0.1, 0.85)) / 1;
@@ -388,3 +368,5 @@ export function toSummary(detail: TrendDetail): TrendSummary {
 }
 
 export const FIXTURE_SOURCES_SCANNED = 214;
+/** Platform-wide stat, same kind as the "412 predictions resolved" figure already in the real site's Navbar. */
+export const FIXTURE_FORECASTS_WITHDRAWN = 31;

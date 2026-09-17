@@ -1312,10 +1312,9 @@ export const TREND_SEEDS: TrendSeed[] = [
         weight: 0.36,
       },
     ],
-    invalidationRisks: [
-      "Third-party resale marketplaces respond with brand-partnership programmes that remove the incentive to go first-party.",
-      "Logistics and authentication costs for first-party resale prove too high to sustain at scale.",
-    ],
+    // Deliberately empty: exercises the required "no named risks" fallback state (§7) with real data,
+    // rather than leaving that UI path untested by every fixture trend.
+    invalidationRisks: [],
     forecastHeadline:
       "First-party resale adoption keeps growing steadily through 2027, favouring brands that pair it with trade-in credit rather than running resale as a standalone channel.",
     scenarios: {

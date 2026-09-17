@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import type { TrendSummary } from "@/types/trends";
 import Figure from "@/components/primitives/Figure";
 import Meter from "@/components/primitives/Meter";
 import MonoLabel from "@/components/primitives/MonoLabel";
+import KpiTile from "@/components/trends/KpiTile";
 import MomentumChart from "@/components/trends/MomentumChart";
 import { ArrowRightIcon } from "@/components/trends/icons";
 import { categoryLabel } from "@/lib/trends/categories";
@@ -103,16 +103,5 @@ export default function FeaturedTrendCard({ trend, className = "" }: FeaturedTre
         ) : null}
       </div>
     </article>
-  );
-}
-
-function KpiTile({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div className="flex flex-col gap-[7px] rounded-lg border border-trends-line bg-trends-surface-sunken p-[13px]">
-      <MonoLabel size="2xs" className="leading-[1.3]">
-        {label}
-      </MonoLabel>
-      <span className="font-display text-[25px] font-semibold leading-none">{children}</span>
-    </div>
   );
 }

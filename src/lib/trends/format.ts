@@ -20,6 +20,12 @@ function quarterOf(iso: string): { q: number; year: number } {
   return { q: Math.floor(d.getUTCMonth() / 3) + 1, year: d.getUTCFullYear() };
 }
 
+/** "Q3 2027" for a single date. */
+export function formatQuarter(iso: string): string {
+  const { q, year } = quarterOf(iso);
+  return `Q${q} ${year}`;
+}
+
 /** "Q1–Q2 2027", or "Q4 2026 – Q1 2027" when the window spans a year boundary. Uses an en dash, not the signed-number minus. */
 export function formatEntryWindow(opens: string, closes: string): string {
   const start = quarterOf(opens);

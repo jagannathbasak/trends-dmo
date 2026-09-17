@@ -1,4 +1,4 @@
-import type { EvidenceTier, TrendDirection } from "@/types/trends";
+import type { EvidenceTier, SignalType, TrendDirection } from "@/types/trends";
 
 export const TIER_GLYPH: Record<EvidenceTier, string> = {
   verified: "●",
@@ -22,6 +22,26 @@ export const DIRECTION_LABEL: Record<TrendDirection, string> = {
   steady: "Steady",
   declining: "Declining",
 };
+
+export const SIGNAL_TYPE_LABEL: Record<SignalType, string> = {
+  search_demand: "Search demand",
+  capital: "Capital",
+  hiring: "Hiring",
+  procurement: "Procurement",
+  filings: "Filings",
+  pricing: "Pricing",
+  social: "Social",
+};
+
+export const SIGNAL_TYPES: SignalType[] = [
+  "search_demand",
+  "capital",
+  "hiring",
+  "procurement",
+  "filings",
+  "pricing",
+  "social",
+];
 
 /** viewBox is "0 0 24 24", stroke-width 2.6, matching reference/*.html exactly. Steady has no polyline — it renders as a flat line. */
 export const DIRECTION_ARROW_POINTS: Partial<Record<TrendDirection, string>> = {
