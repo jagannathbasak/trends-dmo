@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Instrument_Sans, IBM_Plex_Mono, Architects_Daughter } from "next/font/google";
+import { Space_Grotesk, Instrument_Sans, IBM_Plex_Mono, IBM_Plex_Sans, Architects_Daughter } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/components/ModalProvider";
 import RequestAccessModal from "@/components/RequestAccessModal";
@@ -21,6 +21,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 const architectsDaughter = Architects_Daughter({
@@ -90,7 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${instrumentSans.variable} ${ibmPlexMono.variable} ${architectsDaughter.variable}`}
+      className={`${spaceGrotesk.variable} ${instrumentSans.variable} ${ibmPlexMono.variable} ${ibmPlexSans.variable} ${architectsDaughter.variable}`}
     >
       <body className="min-h-full bg-background font-sans text-foreground antialiased">
         <ModalProvider>

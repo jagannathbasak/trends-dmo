@@ -6,6 +6,28 @@
   --panel: #0d1413;
   --accent: #4fe3c1;
   --accent-ink: #04120f;
+
+  /* Trends feature palette — docs/design/nvile-trends/reference/*.html is the
+     source of truth. Kept separate from the tokens above (not merged into
+     --accent/--foreground/--panel) because the values are close but not equal,
+     and reusing them would silently restyle the rest of the site. Mirrored in
+     src/lib/trends/palette.ts for the SVG charts, which can't read CSS
+     variables at server-render time — keep the two in sync. */
+  --trends-surface: #101817;
+  --trends-surface-sunken: #0c1211;
+  --trends-line: #1d2b28;
+  --trends-line-soft: #16211f;
+  --trends-line-accent: #23413a;
+  --trends-text: #e9f0ed;
+  --trends-text-secondary: #c9d6d2;
+  --trends-text-muted: #8a9b97;
+  --trends-text-faint: #6e7e7a;
+  --trends-rise: #4fd6a6;
+  --trends-rise-bg: #1f3a33;
+  --trends-fall: #e8836f;
+  --trends-fall-surface: #150f0e;
+  --trends-fall-surface-border: #3a2a26;
+  --trends-on-accent: #04120d;
 }
 
 @theme inline {
@@ -18,6 +40,23 @@
   --font-display: var(--font-space-grotesk);
   --font-mono: var(--font-ibm-plex-mono);
   --font-handwritten: var(--font-architects-daughter);
+
+  --color-trends-surface: var(--trends-surface);
+  --color-trends-surface-sunken: var(--trends-surface-sunken);
+  --color-trends-line: var(--trends-line);
+  --color-trends-line-soft: var(--trends-line-soft);
+  --color-trends-line-accent: var(--trends-line-accent);
+  --color-trends-text: var(--trends-text);
+  --color-trends-text-secondary: var(--trends-text-secondary);
+  --color-trends-text-muted: var(--trends-text-muted);
+  --color-trends-text-faint: var(--trends-text-faint);
+  --color-trends-rise: var(--trends-rise);
+  --color-trends-rise-bg: var(--trends-rise-bg);
+  --color-trends-fall: var(--trends-fall);
+  --color-trends-fall-surface: var(--trends-fall-surface);
+  --color-trends-fall-surface-border: var(--trends-fall-surface-border);
+  --color-trends-on-accent: var(--trends-on-accent);
+  --font-trends-sans: var(--font-ibm-plex-sans);
 }
 
 html {
