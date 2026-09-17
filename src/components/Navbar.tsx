@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useModal } from "@/components/ModalProvider";
 
 const LINKS = [
-  { href: "#platform", label: "Platform" },
-  { href: "#prediction", label: "Prediction" },
-  { href: "#track-record", label: "Track record" },
-  { href: "#method", label: "Method" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/#platform", label: "Platform" },
+  { href: "/#prediction", label: "Prediction" },
+  { href: "/#track-record", label: "Track record" },
+  { href: "/#method", label: "Method" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/trends", label: "Trends" },
 ];
 
 export default function Navbar() {
@@ -32,15 +34,15 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#platform" className="font-display text-[17px] font-bold tracking-[0.16em]">
+        <Link href="/#platform" className="font-display text-[17px] font-bold tracking-[0.16em]">
           NVILE
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 font-medium text-[13px] text-white/60 lg:flex">
           {LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="transition hover:text-white">
+            <Link key={link.href} href={link.href} className="transition hover:text-white">
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -76,14 +78,14 @@ export default function Navbar() {
         <div className="border-t border-white/[0.07] bg-background px-5 pb-6 pt-2 lg:hidden">
           <nav className="flex flex-col gap-1 text-sm text-white/70">
             {LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="rounded-md px-2 py-2.5 transition hover:bg-white/[0.04] hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="mt-3 flex flex-col gap-2">

@@ -14,6 +14,9 @@ export const SITE_TAGLINE = "See what is coming before you make the decision.";
 export const SITE_DESCRIPTION =
   "NVILE is a prediction intelligence platform that detects market signals, explains why they're moving, forecasts where they lead across 30 days to 3 years, and tells you what to do about it — with every figure labelled by evidence tier and confidence.";
 
+export const FOUNDER_NAME = "Jagannath Basak";
+export const FOUNDER_URL = "https://jagannathbasak.com";
+
 export const SITE_KEYWORDS = [
   "prediction intelligence",
   "market forecasting platform",

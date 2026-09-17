@@ -4,6 +4,8 @@ import "./globals.css";
 import { ModalProvider } from "@/components/ModalProvider";
 import RequestAccessModal from "@/components/RequestAccessModal";
 import {
+  FOUNDER_NAME,
+  FOUNDER_URL,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
@@ -47,7 +49,10 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   applicationName: SITE_NAME,
-  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  authors: [
+    { name: SITE_NAME, url: SITE_URL },
+    { name: FOUNDER_NAME, url: FOUNDER_URL },
+  ],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "technology",

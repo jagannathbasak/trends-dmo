@@ -1,8 +1,8 @@
 import { FAQS } from "@/lib/faqData";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import { FOUNDER_NAME, FOUNDER_URL, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
-export function buildStructuredData() {
-  const organization = {
+function buildOrganization() {
+  return {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_NAME,
@@ -12,9 +12,16 @@ export function buildStructuredData() {
       url: `${SITE_URL}/icon.png`,
     },
     description: SITE_DESCRIPTION,
+    founder: {
+      "@type": "Person",
+      name: FOUNDER_NAME,
+      url: FOUNDER_URL,
+    },
   };
+}
 
-  const website = {
+function buildWebsite() {
+  return {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
@@ -23,6 +30,21 @@ export function buildStructuredData() {
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
   };
+}
+
+// Lightweight site-identity graph (Organization + WebSite) for pages other
+// than the homepage, so every page carries the same org/founder signals
+// without repeating the full offers/FAQ graph that only applies to "/".
+export function buildSiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [buildOrganization(), buildWebsite()],
+  };
+}
+
+export function buildStructuredData() {
+  const organization = buildOrganization();
+  const website = buildWebsite();
 
   const softwareApplication = {
     "@type": "SoftwareApplication",
