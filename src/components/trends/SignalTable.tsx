@@ -1,39 +1,86 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import type { Signal, SignalType } from "@/types/trends";
 import TierBadge from "@/components/primitives/TierBadge";
 import Meter from "@/components/primitives/Meter";
 import MonoLabel from "@/components/primitives/MonoLabel";
-import { SIGNAL_TYPES, SIGNAL_TYPE_LABEL } from "@/lib/trends/notation";
+import { SIGNAL_TYPE_LABEL } from "@/lib/trends/notation";
 import { formatSignedPct } from "@/lib/trends/format";
+import { buildFilteredUrl } from "@/lib/trends/url";
 
 const GRID_COLS = "md:grid-cols-[96px_150px_minmax(0,1fr)_160px_96px_80px]";
 
 export interface SignalTableProps {
-  signals: Signal[];
+  slug: string;
+  initialSignals: Signal[];
+  initialNextCursor: string | null;
+  /** Total signals matching the active type filter (not the trend's overall sourceCount). */
   totalCount: number;
-  activeType?: SignalType | "all";
+  /** Every type present anywhere in this trend's signals, for the pill list — not just what's on the current page. */
+  availableTypes: SignalType[];
+  activeType: SignalType | "all";
+  currentParams: string;
   className?: string;
 }
 
 /**
- * The evidence trail — every signal behind the score. Filtering and "load
- * more" pagination are wired up in a later phase; this renders the real
- * first page of real signals now. Below md it becomes stacked rows, never a
- * horizontally scrolling table (§7) — rendered as two separate layouts
- * (mobile stacked, desktop grid) rather than one shared structure, since
- * Tailwind needs literal class names, not ones assembled at runtime.
+ * The evidence trail — every signal behind the score. Type pills update the
+ * URL (?signal=), which re-renders this whole component fresh (the parent
+ * keys it by activeType); "Load more" is local state on top of that first
+ * page, fetched from the real /api/trends/[slug]/signals route.
  */
-export default function SignalTable({ signals, totalCount, activeType = "all", className = "" }: SignalTableProps) {
-  const typesPresent = SIGNAL_TYPES.filter((t) => signals.some((s) => s.type === t) || t === activeType);
-  const remaining = totalCount - signals.length;
+export default function SignalTable({
+  slug,
+  initialSignals,
+  initialNextCursor,
+  totalCount,
+  availableTypes,
+  activeType,
+  currentParams,
+  className = "",
+}: SignalTableProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [signals, setSignals] = useState(initialSignals);
+  const [nextCursor, setNextCursor] = useState(initialNextCursor);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const remaining = Math.max(0, totalCount - signals.length);
+
+  async function loadMore() {
+    if (!nextCursor || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const params = new URLSearchParams({ cursor: nextCursor });
+      if (activeType !== "all") params.set("type", activeType);
+      const res = await fetch(`/api/trends/${slug}/signals?${params.toString()}`);
+      if (!res.ok) throw new Error(`Request failed with ${res.status}`);
+      const data: { items: Signal[]; nextCursor: string | null } = await res.json();
+      setSignals((prev) => [...prev, ...data.items]);
+      setNextCursor(data.nextCursor);
+    } catch {
+      setError("Couldn't load more signals — try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function selectType(type: SignalType | "all") {
+    router.replace(buildFilteredUrl(pathname, currentParams, { signal: type === "all" ? undefined : type }));
+  }
 
   return (
     <div className={className}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <MonoLabel size="2xs">THE EVIDENCE TRAIL — EVERY SIGNAL BEHIND THE SCORE</MonoLabel>
-        <div className="flex flex-wrap gap-[7px]">
-          <FilterPill label="All" active={activeType === "all"} />
-          {typesPresent.map((type) => (
-            <FilterPill key={type} label={SIGNAL_TYPE_LABEL[type]} active={activeType === type} />
+        <div className="flex flex-wrap gap-[7px]" role="group" aria-label="Filter by signal type">
+          <FilterPill label="All" active={activeType === "all"} onClick={() => selectType("all")} />
+          {availableTypes.map((type) => (
+            <FilterPill key={type} label={SIGNAL_TYPE_LABEL[type]} active={activeType === type} onClick={() => selectType(type)} />
           ))}
         </div>
       </div>
@@ -50,27 +97,36 @@ export default function SignalTable({ signals, totalCount, activeType = "all", c
           <span>WEIGHT</span>
         </div>
 
-        {signals.map((signal, i) => (
-          <SignalRow key={signal.id} signal={signal} isLast={i === signals.length - 1} />
-        ))}
+        <div aria-live="polite">
+          {signals.map((signal, i) => (
+            <SignalRow key={signal.id} signal={signal} isLast={i === signals.length - 1} />
+          ))}
+          {signals.length === 0 ? <p className="px-5 py-6 text-[13px] text-trends-text-muted">No signals match this filter.</p> : null}
+        </div>
       </div>
 
-      {remaining > 0 ? (
+      {error ? <p className="mt-[10px] text-[12px] text-trends-fall">{error}</p> : null}
+
+      {nextCursor ? (
         <button
           type="button"
-          className="mt-[14px] h-11 rounded-lg border border-trends-line bg-trends-surface px-[22px] text-[13px] text-trends-text"
+          onClick={loadMore}
+          disabled={loading}
+          className="mt-[14px] h-11 rounded-lg border border-trends-line bg-trends-surface px-[22px] text-[13px] text-trends-text disabled:opacity-60"
         >
-          Load the remaining {remaining} signals
+          {loading ? "Loading…" : `Load the remaining ${remaining} signals`}
         </button>
       ) : null}
     </div>
   );
 }
 
-function FilterPill({ label, active }: { label: string; active: boolean }) {
+function FilterPill({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
+      onClick={onClick}
+      aria-pressed={active}
       className={`h-8 rounded-md border px-3 text-[12px] ${
         active ? "border-trends-line-accent bg-trends-rise-bg text-trends-rise" : "border-trends-line bg-trends-surface text-trends-text-muted"
       }`}

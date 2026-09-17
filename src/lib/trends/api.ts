@@ -12,6 +12,7 @@ import type {
   TrendSummary,
 } from "@/types/trends";
 import { isCategorySlug } from "@/lib/trends/categories";
+import { SIGNAL_TYPES } from "@/lib/trends/notation";
 
 /**
  * Shared data-access layer over the fixture. Both the /api/trends/* route
@@ -137,14 +138,21 @@ export function getTrendBySlug(slug: string): TrendDetail | null {
 export interface ListSignalsResult {
   items: Signal[];
   nextCursor: string | null;
+  /** Total signals matching `type` (or all, if unset) — not the trend's overall sourceCount. */
+  total: number;
+}
+
+function normalizeSignalType(type: string | undefined): SignalType | "all" {
+  return SIGNAL_TYPES.includes(type as SignalType) ? (type as SignalType) : "all";
 }
 
 export function getTrendSignals(
   slug: string,
-  opts: { type?: SignalType | "all"; cursor?: string; limit?: number } = {},
+  opts: { type?: SignalType | "all" | string; cursor?: string; limit?: number } = {},
 ): ListSignalsResult {
   const all = FIXTURE_SIGNALS[slug] ?? [];
-  const filtered = opts.type && opts.type !== "all" ? all.filter((s) => s.type === opts.type) : all;
+  const type = normalizeSignalType(opts.type);
+  const filtered = type === "all" ? all : all.filter((s) => s.type === type);
 
   const limit = clampLimit(opts.limit, 5);
   const offset = parseCursor(opts.cursor);
@@ -154,7 +162,14 @@ export function getTrendSignals(
   return {
     items: page,
     nextCursor: nextOffset < filtered.length ? String(nextOffset) : null,
+    total: filtered.length,
   };
+}
+
+/** Distinct signal types present across *all* of a trend's signals (not just one page), for the filter pills. */
+export function getTrendSignalTypes(slug: string): SignalType[] {
+  const present = new Set((FIXTURE_SIGNALS[slug] ?? []).map((s) => s.type));
+  return SIGNAL_TYPES.filter((t) => present.has(t));
 }
 
 export function sourcesScanned(): number {

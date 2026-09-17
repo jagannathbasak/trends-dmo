@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Horizon, TrendDetail } from "@/types/trends";
+import type { Horizon, SignalType, TrendDetail } from "@/types/trends";
 import DirectionBadge from "@/components/primitives/DirectionBadge";
 import EvidenceLegend from "@/components/primitives/EvidenceLegend";
 import Figure from "@/components/primitives/Figure";
@@ -13,21 +13,23 @@ import ScoreBreakdown from "@/components/trends/ScoreBreakdown";
 import SignalTable from "@/components/trends/SignalTable";
 import { categoryLabel } from "@/lib/trends/categories";
 import { formatEntryWindow, formatQuarter, formatRelativeTime, formatSigned, formatSignedPct } from "@/lib/trends/format";
-import { forecastsWithdrawnCount, getTrendSignals } from "@/lib/trends/api";
+import { forecastsWithdrawnCount, getTrendSignalTypes, getTrendSignals } from "@/lib/trends/api";
 
 const HORIZON_LABEL: Record<Horizon, string> = { "30d": "30D", "6mo": "6MO", "12mo": "12MO", "3yr": "3YR" };
 
 export interface TrendDetailViewProps {
   detail: TrendDetail;
   horizon: Horizon;
+  signal: SignalType | "all";
   currentParams: string;
 }
 
-export default function TrendDetailView({ detail, horizon, currentParams }: TrendDetailViewProps) {
+export default function TrendDetailView({ detail, horizon, signal, currentParams }: TrendDetailViewProps) {
   const series = detail.seriesByHorizon[horizon];
   const delta = series.length >= 2 ? series[series.length - 1].value - series[0].value : detail.momentumDelta;
   const annotations = detail.annotations.filter((a) => a.t >= series[0].t && a.t <= series[series.length - 1].t);
-  const { items: firstSignals } = getTrendSignals(detail.slug, { limit: 5 });
+  const firstPage = getTrendSignals(detail.slug, { type: signal, limit: 5 });
+  const availableSignalTypes = getTrendSignalTypes(detail.slug);
 
   return (
     <div className="mx-auto flex max-w-[1280px] flex-col px-5 pb-16 sm:px-8">
@@ -126,7 +128,17 @@ export default function TrendDetailView({ detail, horizon, currentParams }: Tren
         <ScoreBreakdown breakdown={detail.breakdown} sourceCount={detail.sourceCount} />
       </div>
 
-      <SignalTable signals={firstSignals} totalCount={detail.sourceCount} className="mt-[22px]" />
+      <SignalTable
+        key={signal}
+        slug={detail.slug}
+        initialSignals={firstPage.items}
+        initialNextCursor={firstPage.nextCursor}
+        totalCount={firstPage.total}
+        availableTypes={availableSignalTypes}
+        activeType={signal}
+        currentParams={currentParams}
+        className="mt-[22px]"
+      />
 
       <SectionHeading index="02" title="Why it is happening" caption="RANKED CATALYSTS · WEIGHTED CONTRIBUTION" className="mt-[46px]" />
 
