@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NVILE — Trends hub (design reference)</title>
+  <meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif; background: #0A0F0E; color: #E9F0ED; }
+    a { color: #E9F0ED; } a:hover { color: #4FD6A6; }
+    button { font-family: inherit; }
+    ::placeholder { color: #6E7E7A; }
+  </style>
+</head>
+<body>
+<div style="width: 1440px; height: 2100px; box-sizing: border-box; padding: 40px 64px 56px 64px; background: #0A0F0E; display: flex; flex-direction: column;">
+
+  <!-- ───────── nav ───────── -->
+  <header style="display: flex; align-items: center; justify-content: space-between; height: 40px; border-bottom: 1px solid #1D2B28; padding-bottom: 20px;">
+    <div style="display: flex; align-items: center; gap: 44px;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 500; letter-spacing: 0.3em; color: #E9F0ED;">NVILE</div>
+      <nav style="display: flex; align-items: center; gap: 28px; font-size: 14px;">
+        <a href="#trends" style="text-decoration: none; font-weight: 600; color: #E9F0ED;">Trends</a>
+        <a href="#markets" style="text-decoration: none; color: #8A9B97;">Markets</a>
+        <a href="#forecasts" style="text-decoration: none; color: #8A9B97;">Forecasts</a>
+        <a href="#watchlist" style="text-decoration: none; color: #8A9B97;">Watchlist</a>
+        <a href="#method" style="text-decoration: none; color: #8A9B97;">Method</a>
+      </nav>
+    </div>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A9B97;">412 PREDICTIONS RESOLVED · 78% ACCURATE</span>
+      <button type="button" aria-label="Notifications" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #1D2B28; background: #101817; border-radius: 6px; cursor: pointer;">
+        <svg viewBox="0 0 24 24" style="width: 16px; height: 16px;" aria-hidden="true"><path d="M6 10a6 6 0 0 1 12 0c0 4 1.5 5 1.5 5h-15S6 14 6 10z" fill="none" stroke="#8A9B97" stroke-width="1.6" stroke-linejoin="round"></path><path d="M10.5 18.5a1.8 1.8 0 0 0 3 0" fill="none" stroke="#8A9B97" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      </button>
+      <div style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #1D2B28; background: #16211F;"></div>
+    </div>
+  </header>
+
+  <!-- ───────── heading ───────── -->
+  <div style="margin-top: 40px; display: flex; align-items: flex-end; justify-content: space-between; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: #E9F0ED;">Trends</h1>
+      <p style="margin: 0; font-size: 16px; color: #8A9B97; max-width: 760px; text-wrap: pretty;">What is moving across markets, technology, AI, finance, startups, consumer behaviour, industry and science — why it is moving, and where it leads.</p>
+    </div>
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: #8A9B97; white-space: nowrap;">UPDATED 4 MIN AGO · [ 00 ] SOURCES SCANNED</span>
+  </div>
+
+  <!-- ───────── search ───────── -->
+  <div style="margin-top: 30px; display: flex; gap: 12px;">
+    <label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;">Search trends</label>
+    <div style="flex-grow: 1; display: flex; align-items: center; gap: 14px; height: 58px; padding: 0 20px; border: 1px solid #1D2B28; border-radius: 8px; background: #101817;">
+      <svg viewBox="0 0 24 24" style="width: 19px; height: 19px; flex-shrink: 0;" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="#8A9B97" stroke-width="1.8"></circle><line x1="16.2" y1="16.2" x2="21" y2="21" stroke="#8A9B97" stroke-width="1.8" stroke-linecap="round"></line></svg>
+      <input id="q" type="search" placeholder="Search a trend, market, technology, company or behaviour" style="flex-grow: 1; border: 0; outline: none; font-family: inherit; font-size: 15px; color: #E9F0ED; background: transparent;">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #6E7E7A; border: 1px solid #1D2B28; border-radius: 4px; padding: 4px 7px;">⌘K</span>
+    </div>
+    <button type="button" style="height: 58px; padding: 0 32px; border: 0; background: #4FD6A6; color: #04120D; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;">Search</button>
+  </div>
+
+  <!-- ───────── filters ───────── -->
+  <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px;">
+    <button type="button" style="display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 15px; border: 1px solid #1D2B28; background: #101817; color: #E9F0ED; border-radius: 6px; font-size: 13px; cursor: pointer;">Category: All<svg viewBox="0 0 24 24" style="width: 13px; height: 13px;" aria-hidden="true"><polyline points="6,9 12,15 18,9" fill="none" stroke="#8A9B97" stroke-width="2"></polyline></svg></button>
+
+    <div style="display: flex; align-items: center; height: 42px; border: 1px solid #1D2B28; border-radius: 6px; background: #101817; padding: 4px; gap: 2px; box-sizing: border-box;">
+      <button type="button" style="height: 32px; padding: 0 14px; border: 0; background: #1F3A33; color: #4FD6A6; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer;">30D</button>
+      <button type="button" style="height: 32px; padding: 0 14px; border: 0; background: transparent; color: #8A9B97; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer;">6MO</button>
+      <button type="button" style="height: 32px; padding: 0 14px; border: 0; background: transparent; color: #8A9B97; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer;">12MO</button>
+      <button type="button" style="height: 32px; padding: 0 14px; border: 0; background: transparent; color: #8A9B97; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; cursor: pointer;">3YR</button>
+    </div>
+
+    <button type="button" style="display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 15px; border: 1px solid #1D2B28; background: #101817; color: #E9F0ED; border-radius: 6px; font-size: 13px; cursor: pointer;">Geography: Global<svg viewBox="0 0 24 24" style="width: 13px; height: 13px;" aria-hidden="true"><polyline points="6,9 12,15 18,9" fill="none" stroke="#8A9B97" stroke-width="2"></polyline></svg></button>
+
+    <button type="button" style="display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 15px; border: 1px solid #1D2B28; background: #101817; color: #E9F0ED; border-radius: 6px; font-size: 13px; cursor: pointer;">Evidence: All tiers<svg viewBox="0 0 24 24" style="width: 13px; height: 13px;" aria-hidden="true"><polyline points="6,9 12,15 18,9" fill="none" stroke="#8A9B97" stroke-width="2"></polyline></svg></button>
+
+    <button type="button" style="display: flex; align-items: center; gap: 9px; height: 42px; padding: 0 15px; border: 1px solid #1D2B28; background: #101817; color: #E9F0ED; border-radius: 6px; font-size: 13px; cursor: pointer;">Sort: Momentum<svg viewBox="0 0 24 24" style="width: 13px; height: 13px;" aria-hidden="true"><polyline points="6,9 12,15 18,9" fill="none" stroke="#8A9B97" stroke-width="2"></polyline></svg></button>
+
+    <div style="flex-grow: 1;"></div>
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: #8A9B97; display: flex; align-items: center; gap: 16px;">
+      <span><span style="color: #4FD6A6;">●</span> VERIFIED</span>
+      <span><span style="color: #4FD6A6;">◦</span> SIGNAL</span>
+      <span><span style="color: #4FD6A6;">◇</span> ESTIMATE</span>
+      <span><span style="color: #4FD6A6;">◈</span> PREDICTION</span>
+    </span>
+  </div>
+
+  <!-- ───────── trending now ───────── -->
+  <div id="trends" style="margin-top: 46px; display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #1D2B28; padding-bottom: 14px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.01em;">Trending now</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A9B97;">RANKED BY 30-DAY MOMENTUM · ALL CATEGORIES</span>
+    </div>
+    <a href="#all" style="font-size: 13px; text-decoration: none; color: #4FD6A6;">View all 240 →</a>
+  </div>
+
+  <!-- featured -->
+  <article style="margin-top: 22px; border: 1px solid #23413A; border-radius: 12px; background: linear-gradient(180deg, #111B19 0%, #0D1413 100%); padding: 26px; display: flex; gap: 34px; height: 318px; box-sizing: border-box;">
+    <div style="width: 460px; display: flex; flex-direction: column; gap: 14px; flex-shrink: 0;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #04120D; background: #4FD6A6; border-radius: 3px; padding: 4px 8px;">TOP MOVER</span>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A9B97;">MARKET · 41 SOURCES · UPDATED 4 MIN AGO</span>
+      </div>
+      <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 32px; line-height: 1.08; font-weight: 600; letter-spacing: -0.02em;">AI Workflow Platforms</h3>
+      <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #8A9B97; text-wrap: pretty;">Procurement is shifting from seat-based tooling to outcome-priced agent workflows, and the buying centre is moving with it.</p>
+
+      <div style="margin-top: 2px; display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">WHY IT IS MOVING — RANKED CATALYSTS</span>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 13px; width: 150px; color: #E9F0ED;">Agent tooling</span>
+          <div style="flex-grow: 1; height: 6px; border-radius: 3px; background: #16211F;"><div style="height: 6px; width: 74%; border-radius: 3px; background: #4FD6A6;"></div></div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97; width: 36px; text-align: right;">.41</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 13px; width: 150px; color: #E9F0ED;">Procurement budgets</span>
+          <div style="flex-grow: 1; height: 6px; border-radius: 3px; background: #16211F;"><div style="height: 6px; width: 56%; border-radius: 3px; background: #4FD6A6;"></div></div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97; width: 36px; text-align: right;">.33</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 13px; width: 150px; color: #E9F0ED;">Compliance frameworks</span>
+          <div style="flex-grow: 1; height: 6px; border-radius: 3px; background: #16211F;"><div style="height: 6px; width: 38%; border-radius: 3px; background: #4FD6A6;"></div></div>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97; width: 36px; text-align: right;">.26</span>
+        </div>
+      </div>
+
+      <div style="flex-grow: 1;"></div>
+      <a href="trend-detail.html" style="display: flex; align-items: center; justify-content: center; gap: 9px; height: 44px; background: #4FD6A6; color: #04120D; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">Open the evidence trail<svg viewBox="0 0 24 24" style="width: 15px; height: 15px;" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12" stroke="#04120D" stroke-width="2"></line><polyline points="13,6 19,12 13,18" fill="none" stroke="#04120D" stroke-width="2"></polyline></svg></a>
+    </div>
+
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+        <div style="border: 1px solid #1D2B28; border-radius: 8px; background: #0C1211; padding: 13px; display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97; line-height: 1.3;">12MO DEMAND<br>FORECAST</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 25px; font-weight: 600; color: #4FD6A6;">◈ +68%</span>
+        </div>
+        <div style="border: 1px solid #1D2B28; border-radius: 8px; background: #0C1211; padding: 13px; display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97; line-height: 1.3;">OPPORTUNITY<br>PROBABILITY</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 25px; font-weight: 600; color: #4FD6A6;">◈ 87%</span>
+        </div>
+        <div style="border: 1px solid #1D2B28; border-radius: 8px; background: #0C1211; padding: 13px; display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97; line-height: 1.3;">COMPETITION<br>EXPECTED</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 25px; font-weight: 600; color: #E8836F;">◈ +34%</span>
+        </div>
+        <div style="border: 1px solid #1D2B28; border-radius: 8px; background: #0C1211; padding: 13px; display: flex; flex-direction: column; gap: 7px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97; line-height: 1.3;">OPTIMAL ENTRY<br>WINDOW</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 600; color: #E9F0ED;">◈ Q1–Q2 2027</span>
+        </div>
+      </div>
+
+      <div style="flex-grow: 1; border: 1px solid #1D2B28; border-radius: 8px; background: #0C1211; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">MOMENTUM ◇ 84/100 · FORECAST BAND ◈</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">FORECAST CONFIDENCE 82%</span>
+        </div>
+        <svg viewBox="0 0 760 120" preserveAspectRatio="none" style="width: 100%; flex-grow: 1;" aria-hidden="true">
+          <line x1="0" y1="30" x2="760" y2="30" stroke="#16211F" stroke-width="1"></line>
+          <line x1="0" y1="60" x2="760" y2="60" stroke="#16211F" stroke-width="1"></line>
+          <line x1="0" y1="90" x2="760" y2="90" stroke="#16211F" stroke-width="1"></line>
+          <polygon points="470,52 610,30 760,8 760,74 610,66 470,52" fill="#4FD6A6" fill-opacity="0.14"></polygon>
+          <polyline points="470,52 610,48 760,38" fill="none" stroke="#4FD6A6" stroke-width="2" stroke-dasharray="5 4"></polyline>
+          <polyline points="0,104 60,100 120,102 180,92 240,88 300,80 360,82 420,66 470,52" fill="none" stroke="#4FD6A6" stroke-width="2.4"></polyline>
+          <line x1="470" y1="0" x2="470" y2="120" stroke="#2C4B43" stroke-width="1"></line>
+          <circle cx="470" cy="52" r="3.5" fill="#4FD6A6"></circle>
+        </svg>
+        <div style="display: flex; align-items: center; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #6E7E7A;">
+          <span>30D AGO</span><span>TODAY</span><span>12MO FORECAST</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- three cards -->
+  <div style="margin-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+
+    <article style="border: 1px solid #1D2B28; border-radius: 12px; background: #101817; padding: 22px; display: flex; flex-direction: column; gap: 15px; height: 496px; box-sizing: border-box;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A9B97; border: 1px solid #1D2B28; border-radius: 3px; padding: 4px 8px;">[ CATEGORY ]</span>
+        <span style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #4FD6A6;"><svg viewBox="0 0 24 24" style="width: 12px; height: 12px;" aria-hidden="true"><polyline points="5,17 12,8 19,17" fill="none" stroke="#4FD6A6" stroke-width="2.6"></polyline></svg>ACCELERATING</span>
+      </div>
+
+      <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 23px; line-height: 1.15; font-weight: 600; letter-spacing: -0.015em;">[ Trend name ]</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #8A9B97; text-wrap: pretty;">[ One line on what is changing, for whom, and over what period. ]</p>
+
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; padding: 14px 0; border-top: 1px solid #16211F; border-bottom: 1px solid #16211F;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">MOMENTUM ◇</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600; line-height: 1;">[ 00 ]<span style="font-size: 14px; font-weight: 400; color: #8A9B97;">/100</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+          <svg viewBox="0 0 120 32" style="width: 126px; height: 34px;" aria-hidden="true"><polyline points="0,27 15,25 30,26 45,19 60,21 75,14 90,11 105,6 120,2" fill="none" stroke="#4FD6A6" stroke-width="2"></polyline></svg>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6;">[ +00 ] 30D</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">KEY SIGNALS</span>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">●</span><span style="color: #C9D6D2; flex-grow: 1;">[ Verified signal ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◦</span><span style="color: #C9D6D2; flex-grow: 1;">[ Observed behaviour ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◇</span><span style="color: #C9D6D2; flex-grow: 1;">[ Derived estimate ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">TOP CATALYSTS</span>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 68%; border-radius: 3px; background: #4FD6A6;"></div></div></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 44%; border-radius: 3px; background: #4FD6A6;"></div></div></div>
+      </div>
+
+      <div style="flex-grow: 1;"></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #16211F;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97;">12MO <span style="color: #4FD6A6;">◈ [ +00% ]</span> · CONF [ 00% ]</span>
+        <a href="trend-detail.html" style="display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; text-decoration: none; color: #4FD6A6;">Evidence trail<svg viewBox="0 0 24 24" style="width: 14px; height: 14px;" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12" stroke="#4FD6A6" stroke-width="2"></line><polyline points="13,6 19,12 13,18" fill="none" stroke="#4FD6A6" stroke-width="2"></polyline></svg></a>
+      </div>
+    </article>
+
+    <article style="border: 1px solid #1D2B28; border-radius: 12px; background: #101817; padding: 22px; display: flex; flex-direction: column; gap: 15px; height: 496px; box-sizing: border-box;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A9B97; border: 1px solid #1D2B28; border-radius: 3px; padding: 4px 8px;">[ CATEGORY ]</span>
+        <span style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #4FD6A6;"><svg viewBox="0 0 24 24" style="width: 12px; height: 12px;" aria-hidden="true"><polyline points="4,16 10,10 14,14 20,6" fill="none" stroke="#4FD6A6" stroke-width="2.6"></polyline></svg>EMERGING</span>
+      </div>
+
+      <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 23px; line-height: 1.15; font-weight: 600; letter-spacing: -0.015em;">[ Trend name ]</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #8A9B97; text-wrap: pretty;">[ One line on what is changing, for whom, and over what period. ]</p>
+
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; padding: 14px 0; border-top: 1px solid #16211F; border-bottom: 1px solid #16211F;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">MOMENTUM ◇</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600; line-height: 1;">[ 00 ]<span style="font-size: 14px; font-weight: 400; color: #8A9B97;">/100</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+          <svg viewBox="0 0 120 32" style="width: 126px; height: 34px;" aria-hidden="true"><polyline points="0,29 15,28 30,25 45,26 60,18 75,19 90,12 105,10 120,4" fill="none" stroke="#4FD6A6" stroke-width="2"></polyline></svg>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6;">[ +00 ] 30D</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">KEY SIGNALS</span>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◦</span><span style="color: #C9D6D2; flex-grow: 1;">[ Observed behaviour ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">●</span><span style="color: #C9D6D2; flex-grow: 1;">[ Verified signal ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◦</span><span style="color: #C9D6D2; flex-grow: 1;">[ Observed behaviour ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ +00% ]</span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">TOP CATALYSTS</span>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 57%; border-radius: 3px; background: #4FD6A6;"></div></div></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 39%; border-radius: 3px; background: #4FD6A6;"></div></div></div>
+      </div>
+
+      <div style="flex-grow: 1;"></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #16211F;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97;">12MO <span style="color: #4FD6A6;">◈ [ +00% ]</span> · CONF [ 00% ]</span>
+        <a href="trend-detail.html" style="display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; text-decoration: none; color: #4FD6A6;">Evidence trail<svg viewBox="0 0 24 24" style="width: 14px; height: 14px;" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12" stroke="#4FD6A6" stroke-width="2"></line><polyline points="13,6 19,12 13,18" fill="none" stroke="#4FD6A6" stroke-width="2"></polyline></svg></a>
+      </div>
+    </article>
+
+    <article style="border: 1px solid #1D2B28; border-radius: 12px; background: #101817; padding: 22px; display: flex; flex-direction: column; gap: 15px; height: 496px; box-sizing: border-box;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: #8A9B97; border: 1px solid #1D2B28; border-radius: 3px; padding: 4px 8px;">[ CATEGORY ]</span>
+        <span style="display: flex; align-items: center; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #E8836F;"><svg viewBox="0 0 24 24" style="width: 12px; height: 12px;" aria-hidden="true"><polyline points="5,8 12,17 19,8" fill="none" stroke="#E8836F" stroke-width="2.6"></polyline></svg>DECLINING</span>
+      </div>
+
+      <h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 23px; line-height: 1.15; font-weight: 600; letter-spacing: -0.015em;">[ Trend name ]</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #8A9B97; text-wrap: pretty;">[ One line on what is changing, for whom, and over what period. ]</p>
+
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; padding: 14px 0; border-top: 1px solid #16211F; border-bottom: 1px solid #16211F;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">MOMENTUM ◇</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 600; line-height: 1;">[ 00 ]<span style="font-size: 14px; font-weight: 400; color: #8A9B97;">/100</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+          <svg viewBox="0 0 120 32" style="width: 126px; height: 34px;" aria-hidden="true"><polyline points="0,5 15,8 30,7 45,13 60,12 75,18 90,21 105,25 120,29" fill="none" stroke="#E8836F" stroke-width="2"></polyline></svg>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8836F;">[ −00 ] 30D</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">KEY SIGNALS</span>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">●</span><span style="color: #C9D6D2; flex-grow: 1;">[ Verified signal ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ −00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◦</span><span style="color: #C9D6D2; flex-grow: 1;">[ Observed behaviour ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ −00% ]</span></div>
+        <div style="display: flex; align-items: baseline; gap: 9px; font-size: 13px;"><span style="color: #4FD6A6; font-family: 'IBM Plex Mono', monospace;">◇</span><span style="color: #C9D6D2; flex-grow: 1;">[ Derived estimate ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A;">[ −00% ]</span></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 9px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">TOP CATALYSTS</span>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 61%; border-radius: 3px; background: #E8836F;"></div></div></div>
+        <div style="display: flex; align-items: center; gap: 10px;"><span style="font-size: 12px; width: 118px; color: #C9D6D2;">[ Catalyst ]</span><div style="flex-grow: 1; height: 5px; border-radius: 3px; background: #16211F;"><div style="height: 5px; width: 35%; border-radius: 3px; background: #E8836F;"></div></div></div>
+      </div>
+
+      <div style="flex-grow: 1;"></div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #16211F;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A9B97;">12MO <span style="color: #E8836F;">◈ [ −00% ]</span> · CONF [ 00% ]</span>
+        <a href="trend-detail.html" style="display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; text-decoration: none; color: #4FD6A6;">Evidence trail<svg viewBox="0 0 24 24" style="width: 14px; height: 14px;" aria-hidden="true"><line x1="4" y1="12" x2="19" y2="12" stroke="#4FD6A6" stroke-width="2"></line><polyline points="13,6 19,12 13,18" fill="none" stroke="#4FD6A6" stroke-width="2"></polyline></svg></a>
+      </div>
+    </article>
+  </div>
+
+  <!-- ───────── three state columns ───────── -->
+  <div style="margin-top: 50px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+
+    <section style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #1D2B28; padding-bottom: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;">Emerging</h2>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97;">WHAT IS ABOUT TO TAKE OFF · HORIZON 12MO</span>
+        </div>
+        <a href="#emerging" style="font-size: 12px; text-decoration: none; color: #4FD6A6;">All →</a>
+      </div>
+
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">01</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: EARLY · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,19 11,18 22,14 33,12 44,7 56,3" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">02</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: EARLY · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,20 11,17 22,16 33,11 44,9 56,4" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">03</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: EARLY · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,18 11,19 22,13 33,13 44,8 56,5" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">04</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: EARLY · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,19 11,16 22,15 33,10 44,10 56,6" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #1D2B28; padding-bottom: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;">Accelerating</h2>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97;">ESTABLISHED AND GAINING SPEED</span>
+        </div>
+        <a href="#accelerating" style="font-size: 12px; text-decoration: none; color: #4FD6A6;">All →</a>
+      </div>
+
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">01</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: SCALING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,17 11,15 22,13 33,9 44,6 56,2" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">02</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: SCALING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,18 11,16 22,12 33,11 44,7 56,3" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">03</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: SCALING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,19 11,14 22,14 33,10 44,8 56,4" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">04</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: SCALING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,16 11,15 22,11 33,10 44,6 56,3" fill="none" stroke="#4FD6A6" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #4FD6A6; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 1px solid #1D2B28; padding-bottom: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600;">Declining</h2>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A9B97;">LOSING CAPITAL, ATTENTION OR ADOPTION</span>
+        </div>
+        <a href="#declining" style="font-size: 12px; text-decoration: none; color: #4FD6A6;">All →</a>
+      </div>
+
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">01</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: FADING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,4 11,6 22,9 33,11 44,16 56,19" fill="none" stroke="#E8836F" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8836F; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">02</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: FADING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,5 11,8 22,8 33,13 44,15 56,20" fill="none" stroke="#E8836F" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8836F; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">03</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: FADING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,3 11,7 22,10 33,10 44,17 56,18" fill="none" stroke="#E8836F" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8836F; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+      <a href="trend-detail.html" style="display: flex; align-items: center; gap: 13px; text-decoration: none; padding: 13px 14px; border: 1px solid #16211F; border-radius: 8px; background: #0C1211;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6E7E7A; width: 16px;">04</span>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 4px;"><span style="font-size: 14px; color: #E9F0ED;">[ Trend name ]</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: #6E7E7A;">STAGE: FADING · [ 00 ] SOURCES</span></div>
+        <svg viewBox="0 0 56 22" style="width: 56px; height: 22px;" aria-hidden="true"><polyline points="0,6 11,5 22,11 33,12 44,14 56,19" fill="none" stroke="#E8836F" stroke-width="1.8"></polyline></svg>
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #E8836F; width: 46px; text-align: right;">◈ [ 00% ]</span>
+      </a>
+    </section>
+  </div>
+
+  <!-- ───────── browse ───────── -->
+  <div style="margin-top: 50px; display: flex; flex-direction: column; gap: 14px;">
+    <span style="font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #8A9B97;">BROWSE BY AREA</span>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Markets</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Technology</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">AI</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Finance</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Startups</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Consumer behaviour</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Industry</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Science</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Energy</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #101817;">Health</a>
+      <a href="#c" style="font-size: 13px; padding: 10px 16px; border: 1px solid #1D2B28; border-radius: 22px; text-decoration: none; background: #0C1211; color: #8A9B97;">[ + more areas ]</a>
+    </div>
+  </div>
+
+  <div style="flex-grow: 1;"></div>
+  <div style="margin-top: 40px; border-top: 1px solid #16211F; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #8A9B97;">
+    <span>Every figure is labelled by how much we actually know. Predictions are model output with a band, named catalysts and named invalidation risks — not a guarantee.</span>
+    <a href="#method" style="text-decoration: none; color: #4FD6A6;">Method →</a>
+  </div>
+</div>
+</body>
+</html>
