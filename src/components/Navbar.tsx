@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useModal } from "@/components/ModalProvider";
 
 const LINKS = [
+  { href: "/trends", label: "Trends" },
   { href: "#platform", label: "Platform" },
   { href: "#prediction", label: "Prediction" },
   { href: "#track-record", label: "Track record" },
