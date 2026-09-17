@@ -57,6 +57,14 @@ export interface RelatedEntity {
   logoUrl?: string | null;
 }
 
+export interface HeadlineMetrics {
+  demandForecast: { value: number; bandLow: number; bandHigh: number };
+  opportunityProbability: number;
+  competitionExpected: number;
+  entryWindow: { opens: string; closes: string };
+  confidence: number;
+}
+
 export interface TrendSummary {
   id: string;
   slug: string;
@@ -68,6 +76,10 @@ export interface TrendSummary {
   momentumDelta: number;
   direction: TrendDirection;
   series: MomentumPoint[];
+  /** Short lead-in to the full forecastBand on TrendDetail, for the featured card's chart. Same momentum-index scale as `series`, not the %-change figures in forecastTeaser. */
+  forecastPreview?: ForecastPoint[];
+  /** Populated for every trend; only the featured card's 4 KPI tiles read it. */
+  headlineMetrics?: HeadlineMetrics;
   keySignals: Signal[];
   topCatalysts: Catalyst[];
   forecastTeaser: { horizon: Horizon; changePct: number; confidence: number };
@@ -77,13 +89,7 @@ export interface TrendSummary {
 }
 
 export interface TrendDetail extends TrendSummary {
-  headlineMetrics: {
-    demandForecast: { value: number; bandLow: number; bandHigh: number };
-    opportunityProbability: number;
-    competitionExpected: number;
-    entryWindow: { opens: string; closes: string };
-    confidence: number;
-  };
+  headlineMetrics: HeadlineMetrics;
   breakdown: {
     demand: number;
     competition: number;

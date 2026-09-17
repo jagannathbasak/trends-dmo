@@ -83,6 +83,14 @@ export const forecastTeaserSchema = z.object({
   confidence: z.number().min(0).max(100),
 });
 
+export const headlineMetricsSchema = z.object({
+  demandForecast: z.object({ value: z.number(), bandLow: z.number(), bandHigh: z.number() }),
+  opportunityProbability: z.number().min(0).max(100),
+  competitionExpected: z.number(),
+  entryWindow: z.object({ opens: z.string(), closes: z.string() }),
+  confidence: z.number().min(0).max(100),
+});
+
 export const trendSummarySchema = z.object({
   id: z.string(),
   slug: z.string().min(1),
@@ -94,9 +102,11 @@ export const trendSummarySchema = z.object({
   momentumDelta: z.number(),
   direction: trendDirectionSchema,
   series: z.array(momentumPointSchema).min(2),
+  forecastPreview: z.array(forecastPointSchema).optional(),
+  headlineMetrics: headlineMetricsSchema.optional(),
   keySignals: z.array(signalSchema).max(3),
-  topCatalysts: catalystListSchema.refine((c) => c.length <= 2, {
-    message: "at most two catalysts appear on a card",
+  topCatalysts: catalystListSchema.refine((c) => c.length <= 3, {
+    message: "at most three catalysts appear on the featured card; the standard card shows only its first two",
   }),
   forecastTeaser: forecastTeaserSchema,
   sourceCount: z.number().int().min(0),
@@ -117,13 +127,7 @@ const scenariosSchema = z
   });
 
 export const trendDetailSchema = trendSummarySchema.extend({
-  headlineMetrics: z.object({
-    demandForecast: z.object({ value: z.number(), bandLow: z.number(), bandHigh: z.number() }),
-    opportunityProbability: z.number().min(0).max(100),
-    competitionExpected: z.number(),
-    entryWindow: z.object({ opens: z.string(), closes: z.string() }),
-    confidence: z.number().min(0).max(100),
-  }),
+  headlineMetrics: headlineMetricsSchema,
   breakdown: z.object({
     demand: z.number().min(0).max(100),
     competition: z.number().min(0).max(100),

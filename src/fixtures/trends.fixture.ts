@@ -60,7 +60,8 @@ function addDays(d: Date, days: number): Date {
 }
 
 const HORIZON_CONFIG: Record<Horizon, { points: number; stepDays: number }> = {
-  "30d": { points: 11, stepDays: 3 },
+  // 9 points to match reference/trend-card.html and reference/trends-hub.html's own "30D" series exactly.
+  "30d": { points: 9, stepDays: 3.75 },
   "6mo": { points: 13, stepDays: 15 },
   "12mo": { points: 13, stepDays: 30 },
   "3yr": { points: 13, stepDays: 84 },
@@ -253,6 +254,17 @@ function buildTrend(seed: TrendSeed): TrendDetail {
   const forecastBand = buildForecastBand(seed.slug, seed.momentum, seed.direction, seed.metrics.confidencePct);
   const namedSignals = seed.keySignals.map((s, i) => toSignal(`${seed.slug}-signal-${i}`, s));
   const catalysts = buildCatalysts(seed);
+  const headlineMetrics = {
+    demandForecast: {
+      value: seed.metrics.demandPct,
+      bandLow: seed.metrics.demandBandLow,
+      bandHigh: seed.metrics.demandBandHigh,
+    },
+    opportunityProbability: seed.metrics.opportunityPct,
+    competitionExpected: seed.metrics.competitionPct,
+    entryWindow: { opens: seed.metrics.entryOpens, closes: seed.metrics.entryCloses },
+    confidence: seed.metrics.confidencePct,
+  };
 
   const summary: TrendSummary = {
     id: seed.slug,
@@ -265,8 +277,12 @@ function buildTrend(seed: TrendSeed): TrendDetail {
     momentumDelta: seed.momentumDelta,
     direction: seed.direction,
     series: seriesByHorizon["30d"],
+    // 2 points to match the reference's featured-card chart, which extends the forecast line
+    // only 2 points beyond the split marker.
+    forecastPreview: forecastBand.slice(0, 2),
+    headlineMetrics,
     keySignals: namedSignals,
-    topCatalysts: catalysts.slice(0, 2),
+    topCatalysts: catalysts.slice(0, 3),
     forecastTeaser: {
       horizon: "12mo",
       changePct: seed.metrics.demandPct,
@@ -279,17 +295,7 @@ function buildTrend(seed: TrendSeed): TrendDetail {
 
   const detail: TrendDetail = {
     ...summary,
-    headlineMetrics: {
-      demandForecast: {
-        value: seed.metrics.demandPct,
-        bandLow: seed.metrics.demandBandLow,
-        bandHigh: seed.metrics.demandBandHigh,
-      },
-      opportunityProbability: seed.metrics.opportunityPct,
-      competitionExpected: seed.metrics.competitionPct,
-      entryWindow: { opens: seed.metrics.entryOpens, closes: seed.metrics.entryCloses },
-      confidence: seed.metrics.confidencePct,
-    },
+    headlineMetrics,
     breakdown: {
       demand: seed.metrics.demandScore,
       competition: seed.metrics.competitionScore,
@@ -350,6 +356,8 @@ export function toSummary(detail: TrendDetail): TrendSummary {
     momentumDelta,
     direction,
     series,
+    forecastPreview,
+    headlineMetrics,
     keySignals,
     topCatalysts,
     forecastTeaser,
@@ -368,6 +376,8 @@ export function toSummary(detail: TrendDetail): TrendSummary {
     momentumDelta,
     direction,
     series,
+    forecastPreview,
+    headlineMetrics,
     keySignals,
     topCatalysts,
     forecastTeaser,

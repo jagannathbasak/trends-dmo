@@ -42,8 +42,19 @@ export function scaleY(value: number, height: number, domain: Domain, padTop = 8
   return height - padBottom - ratio * usable;
 }
 
-export function seriesToPoints(series: MomentumPoint[], width: number, height: number, domain: Domain): Point[] {
-  return series.map((p, i) => [scaleX(i, series.length, width), scaleY(p.value, height, domain)]);
+/**
+ * `totalCount` lets the series occupy only its own share of a wider shared axis
+ * (e.g. observed points scaled alongside a forecast continuation) — it defaults
+ * to the series' own length, which stretches it across the full width as before.
+ */
+export function seriesToPoints(
+  series: MomentumPoint[],
+  width: number,
+  height: number,
+  domain: Domain,
+  totalCount: number = series.length,
+): Point[] {
+  return series.map((p, i) => [scaleX(i, totalCount, width), scaleY(p.value, height, domain)]);
 }
 
 /** The band's upper/lower edges continue from the same x position the observed line ends on. */
