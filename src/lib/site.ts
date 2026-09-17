@@ -1,5 +1,9 @@
 export const SITE_NAME = "NVILE";
 
+// Title-cased form used specifically in <title>/OG/Twitter text; SITE_NAME
+// stays all-caps for the wordmark, structured data, and og:site_name.
+export const SITE_TITLE_NAME = "Nvile";
+
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(
   /\/$/,
   "",
