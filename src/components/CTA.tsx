@@ -20,7 +20,7 @@ export default function CTA() {
           Know where the market is going before everyone else sees it.
         </h2>
         <p className="max-w-md text-[15px] leading-relaxed text-white/60 sm:text-base">
-          Start with one market. NVILE returns the signals, the causes, the forecast and the
+          Start with one market. Nvile returns the signals, the causes, the forecast and the
           call.
         </p>
         <div className="mt-1 flex flex-wrap justify-center gap-3">

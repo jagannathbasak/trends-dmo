@@ -8,7 +8,7 @@ const CONVENTIONAL = [
   "Findings, not decisions",
 ];
 
-const NVILE = [
+const Nvile = [
   "Continuous signal detection, re-scored daily",
   "Forward forecasts at 30 days to 3 years",
   "Bands, confidence and evidence tier on every figure",
@@ -40,9 +40,9 @@ export default function Comparison() {
           </Reveal>
 
           <Reveal delay={140} className="flex flex-col gap-3.5 rounded-xl border border-accent/35 bg-accent/[0.04] p-6">
-            <div className="font-mono text-[10px] tracking-[0.12em] text-accent">NVILE</div>
+            <div className="font-mono text-[10px] tracking-[0.12em] text-accent">Nvile</div>
             <ul className="flex flex-col gap-2.5 text-sm leading-relaxed">
-              {NVILE.map((line) => (
+              {Nvile.map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>

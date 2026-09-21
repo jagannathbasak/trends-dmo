@@ -3,7 +3,7 @@ import { Space_Grotesk, Instrument_Sans, IBM_Plex_Mono, IBM_Plex_Sans, Architect
 import "./globals.css";
 import { ModalProvider } from "@/components/ModalProvider";
 import RequestAccessModal from "@/components/RequestAccessModal";
-import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_KEYWORDS, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -35,14 +35,11 @@ const architectsDaughter = Architects_Daughter({
   weight: ["400"],
 });
 
-const title = `${SITE_NAME} — ${SITE_TAGLINE}`;
+const title = "NVILE";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: title,
-    template: `%s — ${SITE_NAME}`,
-  },
+  title,
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   applicationName: SITE_NAME,

@@ -40,7 +40,7 @@ export function OgImageContent() {
             color: "#E6EDEB",
           }}
         >
-          NVILE
+          Nvile
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export function OgImageContent() {
             color: "#E6EDEB",
           }}
         >
-          See what is coming before you make the decision.
+          See What Happens Next.
         </div>
       </div>
 

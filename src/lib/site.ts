@@ -1,14 +1,21 @@
-export const SITE_NAME = "NVILE";
+export const SITE_NAME = "Nvile";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://nvile.com").replace(
   /\/$/,
   "",
 );
 
-export const SITE_TAGLINE = "See what is coming before you make the decision.";
+export const ORGANIZATION_NAME = "NVILE";
+
+export const ORGANIZATION_SOCIAL_PROFILES = ["https://www.linkedin.com/company/nvile"];
+
+export const FOUNDER_NAME = "Jagannath Basak";
+export const FOUNDER_URL = "https://jagannathbasak.com";
+
+export const SITE_TAGLINE = "See What Happens Next.";
 
 export const SITE_DESCRIPTION =
-  "NVILE is a prediction intelligence platform that detects market signals, explains why they're moving, forecasts where they lead across 30 days to 3 years, and tells you what to do about it — with every figure labelled by evidence tier and confidence.";
+  "Nvile is a prediction intelligence engine that detects early market signals, explains what’s driving them, and forecasts what happens next.";
 
 export const SITE_KEYWORDS = [
   "prediction intelligence",

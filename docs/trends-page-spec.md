@@ -1,4 +1,4 @@
-# NVILE — Trends page & Trend detail page
+# Nvile — Trends page & Trend detail page
 
 **Implementation spec for Claude Code.** Drop this at `docs/trends-page-spec.md` in the repo and point Claude Code at it.
 

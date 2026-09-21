@@ -31,7 +31,7 @@ export default function AskNvile() {
     <section id="ask" className="scroll-mt-20 border-b border-white/[0.07] px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto flex max-w-[820px] flex-col gap-5">
         <Reveal className="flex flex-col items-center gap-3 text-center">
-          <Eyebrow>ASK NVILE</Eyebrow>
+          <Eyebrow>ASK Nvile</Eyebrow>
           <h2 className="text-balance font-display text-[26px] font-semibold leading-[1.15] tracking-[-0.02em] sm:text-[34px]">
             Questions a research report cannot answer
           </h2>

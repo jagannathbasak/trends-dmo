@@ -26,13 +26,13 @@ export default function Hero() {
 
         <Reveal delay={80}>
           <h1 className="max-w-3xl text-balance font-display text-[38px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[52px] md:text-[62px]">
-            See what is coming before you make the decision.
+            See What Happens Next.
           </h1>
         </Reveal>
 
         <Reveal delay={140}>
           <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-white/60 sm:text-[17px]">
-            NVILE detects the signals, explains why they are moving, forecasts where they lead,
+            Nvile detects the signals, explains why they are moving, forecasts where they lead,
             and tells you what to do about it — with every number labelled by how much we
             actually know.
           </p>

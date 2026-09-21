@@ -14,7 +14,7 @@ export default function SixDimensions() {
       <div className="mx-auto flex max-w-[1280px] flex-col gap-7">
         <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <Reveal className="max-w-xl">
-            <Eyebrow>WHAT NVILE PREDICTS</Eyebrow>
+            <Eyebrow>WHAT Nvile PREDICTS</Eyebrow>
             <h2 className="mt-4 text-balance font-display text-[26px] font-semibold leading-[1.1] tracking-[-0.02em] sm:text-[34px] lg:text-[40px]">
               Six forecasts, each with its own confidence and invalidation risk.
             </h2>

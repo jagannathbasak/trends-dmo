@@ -1,17 +1,42 @@
 import { FAQS } from "@/lib/faqData";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  FOUNDER_NAME,
+  FOUNDER_URL,
+  ORGANIZATION_NAME,
+  ORGANIZATION_SOCIAL_PROFILES,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 export function buildStructuredData() {
   const organization = {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
-    name: SITE_NAME,
+    name: ORGANIZATION_NAME,
+    alternateName: SITE_NAME,
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
+      "@id": `${SITE_URL}/#logo`,
       url: `${SITE_URL}/icon.png`,
+      contentUrl: `${SITE_URL}/icon.png`,
+      width: 512,
+      height: 512,
+      caption: ORGANIZATION_NAME,
     },
+    sameAs: ORGANIZATION_SOCIAL_PROFILES,
+    founder: { "@id": `${FOUNDER_URL}/#person` },
     description: SITE_DESCRIPTION,
+  };
+
+  const founder = {
+    "@type": "Person",
+    "@id": `${FOUNDER_URL}/#person`,
+    name: FOUNDER_NAME,
+    url: FOUNDER_URL,
+    jobTitle: "Founder & CEO",
+    worksFor: { "@id": `${SITE_URL}/#organization` },
   };
 
   const website = {
@@ -66,6 +91,6 @@ export function buildStructuredData() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [organization, website, softwareApplication, faqPage],
+    "@graph": [organization, founder, website, softwareApplication, faqPage],
   };
 }

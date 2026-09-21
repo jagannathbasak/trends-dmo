@@ -46,7 +46,7 @@ export default function OpportunityReport() {
         <Reveal delay={100} className="overflow-hidden rounded-2xl border border-white/10 bg-[#0A0F0E]">
           <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4 sm:px-7">
             <div className="flex items-baseline gap-3.5">
-              <span className="font-display text-sm font-bold tracking-[0.16em]">NVILE</span>
+              <span className="font-display text-sm font-bold tracking-[0.16em]">Nvile</span>
               <span className="hidden font-mono text-[11px] text-white/40 sm:inline">
                 OPPORTUNITY REPORT
               </span>

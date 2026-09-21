@@ -1,4 +1,4 @@
-# NVILE Trends → Next.js
+# Nvile Trends → Next.js
 
 Everything Claude Code needs to build the Trends hub and Trend detail page from the design.
 
