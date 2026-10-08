@@ -37,18 +37,13 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={200} className="flex w-full justify-center">
-          <div className="relative w-full max-w-[480px]">
-            <button
-              type="button"
-              className="flex w-full items-center justify-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.015] px-6 py-3 text-[15px] font-medium text-white/70 transition hover:border-white/20 hover:text-white/85"
-            >
-              <GoogleIcon />
-              Continue with Google
-            </button>
-            <span className="pointer-events-none absolute -top-2.5 right-0 rounded-full border border-white/15 bg-[#16191d] px-2 py-0.5 text-[11px] text-white/65">
-              Last used
-            </span>
-          </div>
+          <button
+            type="button"
+            className="flex w-full max-w-[480px] items-center justify-center gap-3 rounded-[10px] border border-white/10 bg-white/[0.015] px-6 py-3 text-[15px] font-medium text-white/70 transition hover:border-white/20 hover:text-white/85"
+          >
+            <GoogleIcon />
+            Continue with Google
+          </button>
         </Reveal>
       </div>
 
